@@ -1,0 +1,91 @@
+#icon {
+    margin-top: 5%;
+    min-height: 130px;
+    max-width: 400px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+  
+li {
+    display: inline;
+}
+
+.button {
+    border: 5px solid;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    width: 500px;
+    height: 175px;
+    background-color: white;
+  }
+
+.button1{
+    border-color: #e9a756;
+}
+
+.button1:hover {
+    background-color: #e9a756;
+}
+
+.button2 {
+    border-color: #d2deca;
+}
+
+.button2:hover {
+    background-color: #d2deca;
+}
+
+.button3 {
+    border-color: #687095;
+}
+
+.button3:hover {
+    background-color: #687095;
+}
+
+/*------------------------------------*\
+    $SMALL COMPUTER SCREENS
+\*------------------------------------*/
+@media all and (max-width: 1034px) {
+
+    .button {
+        width: 400px
+    }
+}
+
+/*------------------------------------*\
+    $IPAD AND TABLET
+\*------------------------------------*/
+
+@media only screen and (max-width: 767px) {
+
+    #icon{
+        width: 240px;
+    }
+
+    .button{
+        width: 255px;
+    }
+}
+
+/*------------------------------------*\
+    $IPHONE 4S LANDSCAPE
+\*------------------------------------*/
+
+@media only screen and (max-width : 480px) {
+
+    #icon{
+        width: 300px;
+    }
+    
+    .button{
+        width: 250px;
+    }
+}
+
