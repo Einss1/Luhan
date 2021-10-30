@@ -22,6 +22,7 @@
                 <input type="password" placeholder="Password" name="pwd" required><br><br>
 
                 <button type="submit" name="submit">Log In</button>
+                <br><br>
                 <input type="checkbox" name="remember">Remember me <br><br>
             </form>
 
@@ -38,9 +39,15 @@
         </section>
 
         <a href="signup.php" style="font-family: Arial;">Create an account</a><br>
-        <a href="passrecovery.html" style="font-family: Arial;">Recover password</a>
+        <a href="reset-password.php" style="font-family: Arial;">Forgot your password?</a>
         <br><br>
-        <a href="homepage.html">STILL DEVELOPING</a>
+        <?php
+            if(isset($_GET["newpwd"])) {
+                if ($_GET["newpwd"] == "passwordupdated") {
+                    echo "<p>Your password has been reset!</p>";
+                }
+            }
+        ?>
 
     </center>
 
