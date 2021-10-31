@@ -14,9 +14,10 @@
 
         <img src="./Images/logo.png" id="icon"> <br><br>
 
+        <h1 style="font-size:16px;">Enter your email address and an email will be sent <br> to you with information on how to <br> update your password. </h1>
         <form action="includes/reset-request.inc.php" method="post">
             <label for="email">Email</label><br>
-            <input name="email" type="text" placeholder="Enter your e-mail address" required><br><br>
+            <input name="email" type="text" style="text-align:center" placeholder="Enter your email address" required><br><br>
 
             <button type="submit" name="reset-request-submit">Submit</button>
         </form>
@@ -27,6 +28,8 @@
                 }
             }
         ?>
+        <br><br>
+<a href="login.php" style="font-family: Arial;">Back to login</a><br>
 
     </center>
 </body>

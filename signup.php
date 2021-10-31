@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="CSS\index.css">
 </head>
 
@@ -13,29 +13,29 @@
     <center>
 
     <img src="./Images/logo.png" id="icon"> <br><br>
-    <section class="signup-form">
 
+    <section class="signup-form">
         <div>
             <form action="includes/signup.inc.php" method="post">
-                <label for="name">Name</label><br>
-                <input name="name" type="text" placeholder="Full Name" ><br><br>
+                <label for="name">Full name</label><br>
+                <input name="name" type="text" style="text-align:center" placeholder="Full name" ><br><br>
 
                 <label for="email">Email</label><br>
-                <input name="email" type="text" placeholder="Email" ><br><br>
+                <input name="email" type="text" style="text-align:center" placeholder="Email" ><br><br>
 
-                <label for="uid">User ID</label><br>
-                <input name="uid" type="text" placeholder="User ID" ><br><br>
+                <label for="uid">Username</label><br>
+                <input name="uid" type="text" style="text-align:center" placeholder="Username" ><br><br>
 
                 <label for="pwd">Password</label><br>
-                <input name="pwd" type="password" placeholder="Password" ><br><br>
+                <input name="pwd" type="password" style="text-align:center" placeholder="Password" ><br><br>
 
                 <label>Re-type password</label><br>
-                <input name="pwdrepeat" type="password" placeholder="Re-type password" ><br><br>
+                <input name="pwdrepeat" type="password" style="text-align:center" placeholder="Re-type password" ><br><br>
 
                 <input type="checkbox" id="terms" required>
                 <a>Agree with the </a><a href="terms.html" target="_blank">terms</a><br><br>
 
-                <button type="submit" name="submit">Sign Up</button>
+                <button type="submit" name="submit">Sign up</button>
             </form>
         </div>
 

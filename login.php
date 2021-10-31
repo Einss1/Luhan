@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Luhan</title>
     <link rel="stylesheet" href="CSS\index.css">
 </head>
 
@@ -13,13 +13,14 @@
     <center>
 
         <img src="./Images/logo.png" id="icon"> <br><br>
+
         <section class="signup-form">
             <form action="includes/login.inc.php" method="post">
-                <label for="email">Email</label><br>
-                <input type="text" placeholder="Username/Email" name="uid" required><br><br>
+                <label for="email">Email / Username</label><br>
+                <input type="text" style="text-align:center" placeholder="Email / Username" name="uid" required><br><br>
 
                 <label for="psw">Password</label><br>
-                <input type="password" placeholder="Password" name="pwd" required><br><br>
+                <input type="password" style="text-align:center" placeholder="Password" name="pwd" required><br><br>
 
                 <button type="submit" name="submit">Log In</button>
                 <br><br>
@@ -27,15 +28,15 @@
             </form>
 
             <?php
-            if(isset($_GET["error"])) {
-                if ($_GET["error"] == "emptyinput") {
-                    echo "<p>Fill in all fields</p>";
+                if(isset($_GET["error"])) {
+                    if ($_GET["error"] == "emptyinput") {
+                        echo "<p>Fill in all fields</p>";
+                    } 
+                    else if ($_GET["error"] == "wronglogin") {
+                        echo "<p>Incorrect login information!</p>";
+                    }
                 }
-                else if ($_GET["error"] == "wronglogin") {
-                    echo "<p>Incorrect login information!</p>";
-                }
-            }
-        ?>
+            ?>
         </section>
 
         <a href="signup.php" style="font-family: Arial;">Create an account</a><br>

@@ -14,16 +14,20 @@ li {
     display: inline;
 }
 
+/* Slideshow container */
 .slideshow-container {
   width: 500px;
   position: relative;
 }
 
+/* Slides */
 .mySlides {
   display: none;
   padding: 80px;
   text-align: center;
 }
+
+/* Next & previous buttons */
 
 .prev, .next {
   cursor: pointer;
@@ -67,7 +71,7 @@ li {
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: rgb(255, 255, 255);
+  background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
@@ -77,6 +81,30 @@ li {
   background-color: #717171;
 }
 
+.kan{
+    font-size: x-large;
+}
+
+.kanji {
+    font-size: xx-large;
+}
+
+.kata {
+    font-size: x-large;
+}
+
+.katakana{
+    font-size: xx-large;
+}
+
+.mean{
+    font-size: x-large;
+}
+
+.meaning{
+    font-size: xx-large;
+}
+
 
 /*------------------------------------*\
     $SMALL COMPUTER SCREENS
@@ -84,7 +112,7 @@ li {
 @media all and (max-width: 1034px) {
 
     .slideshow-container {
-        width: 500px
+        width: 400px
     }
 }
 
@@ -95,7 +123,7 @@ li {
 @media only screen and (max-width: 767px) {
 
     .slideshow-container {
-        width: 380px
+        width: 300px
     }
 }
 

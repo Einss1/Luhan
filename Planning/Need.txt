@@ -1,1 +1,21 @@
-bar charts on the homepage 2nd box (review box)
+*Login page
+
+-Remember me button to work
+
+*New Kanjis  
+
+-Make complete button to appear after last slide
+-Find a way to keep track of the user account and his Progress
+-Google voice over the kanji
+
+*Review page
+
+
+*Progress page
+
+-Responsive bar charts with the review process
+
+
+Information page
+Terms of agreement
+Delete account button
