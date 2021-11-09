@@ -10,12 +10,20 @@
 
 *Review page
 
+*Practice page
 
 *Progress page
 
 -Responsive bar charts with the review process
 
+*Profile page
+- Change their email
+- Change password
+- Delete account
 
-Information page
-Terms of agreement
-Delete account button
+*Information page
+
+*Terms of agreement
+
+-Create if someone tries to go to the homepage without being logged in
+they get back to the login page with a warning written "Please Log In"
