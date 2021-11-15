@@ -37,6 +37,17 @@
                     }
                 }
             ?>
+
+            <?php
+                if(isset($_GET['success'])){
+                    if($_GET['success'] == 'profileUpdated') {
+            ?>
+                <small class="alert alert-success">Profile updated!</small>
+                <br>
+            <?php   
+                    }
+                }
+            ?>
         </section>
 
         <a href="signup.php" style="font-family: Arial;">Create an account</a><br>

@@ -22,7 +22,7 @@
                 if(isset($_SESSION["useruid"])) {
                     echo "<li><a href='progress.html'>Progress </a></li>";
                     echo "<li><a href='profile.php'>Profile </a></li>";
-                    echo "<li><a href='includes/logout.inc.php'>Log out </a></li>";
+                    echo "<li><a href='includes/logout.inc.php'> Log out </a></li>";
                 }
                 else {
                     header("location: ../luhan/login.php");

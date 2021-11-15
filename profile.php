@@ -28,9 +28,50 @@
             }
     ?>
 
+    <?php
+        if(isset($_GET['success'])){
+            if($_GET['success'] == 'profileUpdated') {
+                ?>
+                 <small class="alert alert-success">Profile updated!</small>
+                <br>
+            <?php   
+            }
+        }
+    ?>
+
+    <?php
+        if(isset($_GET['error'])){
+            if($_GET['error'] == 'usernametaken') {
+                ?>
+                 <small class="alert alert-error">Username already taken!</small>
+                <br>
+            <?php   
+            }
+            if($_GET['error'] == 'emailtaken') {
+                ?>
+                 <small class="alert alert-error">Email already taken!</small>
+                <br>
+            <?php   
+            }
+            if($_GET['error'] == 'emptyinputs') {
+                ?>
+                 <small class="alert alert-error">Inputs are empty!</small>
+                <br>
+            <?php   
+            }
+            if($_GET['error'] == 'passwordsdontmatch') {
+                ?>
+                 <small class="alert alert-error">Passwords don't match!</small>
+                <br>
+            <?php   
+            }
+        }
+    ?>
+    
+    
 <section class="signup-form">
         <div>
-            <form action="" method="">
+            <form action="includes/userProfileUpdateProcess.php" method="POST" enctype="multipart/form-data">
                 <?php
                     $currentUser = $_SESSION['useruid'];
                     $sql = "SELECT * FROM users WHERE usersUid = '$currentUser'";
@@ -48,17 +89,17 @@
                 
                 <?php echo "Current username"?> <br>
                 <?php echo $_SESSION['useruid']; ?> <br>
-                <input name="updateUserName" type="text" style="text-align:center" placeholder="New Username" ><br><br>
+                <input name="updateUserName" type="text" style="text-align:center" placeholder="New Username"><br><br>
                 
                 <?php echo "Current email"?> <br>
                 <?php echo $row['usersEmail'] ?> <br>
                 <input name="updateEmail" type="email" style="text-align:center" placeholder="New Email"><br><br>
 
                 <label for="pwd">Password</label><br>
-                <input name="updatePwd" type="password" style="text-align:center" placeholder="New Password" ><br><br>
+                <input name="updatePwd" type="password" style="text-align:center" placeholder="New Password"><br><br>
 
                 <label>Re-type password</label><br>
-                <input name="pwdrepeat" type="password" style="text-align:center" placeholder="Re-type password" ><br><br>
+                <input name="pwdrepeat" type="password" style="text-align:center" placeholder="Re-type password"><br><br>
 
                 <input type="submit" name="update" value="Update">
                                 <?php
