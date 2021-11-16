@@ -90,3 +90,5 @@ if (isset($_POST["reset-password-submit"])) {
 } else{
     header("Location: ../login.php");
 }
+
+?>

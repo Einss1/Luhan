@@ -29,17 +29,6 @@
     ?>
 
     <?php
-        if(isset($_GET['success'])){
-            if($_GET['success'] == 'profileUpdated') {
-                ?>
-                 <small class="alert alert-success">Profile updated!</small>
-                <br>
-            <?php   
-            }
-        }
-    ?>
-
-    <?php
         if(isset($_GET['error'])){
             if($_GET['error'] == 'usernametaken') {
                 ?>
@@ -62,6 +51,12 @@
             if($_GET['error'] == 'passwordsdontmatch') {
                 ?>
                  <small class="alert alert-error">Passwords don't match!</small>
+                <br>
+            <?php   
+            }
+            if($_GET['error'] == 'weakpassword') {
+                ?>
+                 <small class="alert alert-error">Password should be at least 8 characters in length and should include at least one upper case letter , one number and one special character!</small>
                 <br>
             <?php   
             }
@@ -101,7 +96,9 @@
                 <label>Re-type password</label><br>
                 <input name="pwdrepeat" type="password" style="text-align:center" placeholder="Re-type password"><br><br>
 
-                <input type="submit" name="update" value="Update">
+                <input type="submit" name="update" value="Update Account">
+                <br><br><br><br>
+                <input class="delete" type="submit" name="delete" value="Delete Account">
                                 <?php
                             }
                         }

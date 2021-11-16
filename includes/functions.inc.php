@@ -13,7 +13,7 @@ function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) {
 
 function invalidUid($username) {
     $result;
-    if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
+    if (!preg_match("/^[a-zA-Z0-9!@#_$%&*]*$/", $username)) {
         $result = true;
     }
     else {
@@ -120,4 +120,19 @@ function loginUser($conn, $username, $pwd) {
     }
 }
 
+function validatepwd($pwd) {
 
+    $uppercase = preg_match('@[A-Z]@', $pwd);
+    $lowercase = preg_match('@[a-z]@', $pwd);
+    $number    = preg_match('@[0-9]@', $pwd);
+    $specialChars = preg_match('@[^\w]@', $pwd);
+
+    if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($pwd) < 8) {
+        $result = true;
+    }else{
+        $result = false;
+    }
+    return $result;
+}
+
+?>
