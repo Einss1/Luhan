@@ -77,15 +77,47 @@ li {
   background-color: #717171;
 }
 
+.button {
+  border: 2px solid;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  width: 40px;
+  height: 27px;
+  background-color: white;
+}
+
+.button1{
+  border-color: #e9a756;
+}
+
+.button1:hover {
+  background-color: #e9a756;
+}
+
+.button2 {
+  border-color: #d2deca;
+}
+
+.button2:hover {
+  background-color: #d2deca;
+}
+
+.button3 {
+  border-color: #687095;
+}
+
+.button3:hover {
+  background-color: #687095;
+}
 
 /*------------------------------------*\
     $SMALL COMPUTER SCREENS
 \*------------------------------------*/
 @media all and (max-width: 1034px) {
 
-    .slideshow-container {
-        width: 500px
-    }
+
 }
 
 /*------------------------------------*\
@@ -94,9 +126,7 @@ li {
 
 @media only screen and (max-width: 767px) {
 
-    .slideshow-container {
-        width: 380px
-    }
+
 }
 
 /*------------------------------------*\
@@ -109,7 +139,5 @@ li {
         width: 300px;
     }
 
-    .slideshow-container {
-        width: 300px
-    }
+
 }
