@@ -17,6 +17,8 @@
 
 *Terms of agreement
 
+*Profile page
+-Username, email and password can't be the same as it was
 -Delete account button brings to a different page where the user is asked to 
 log in and confirm he wants to delete it.
 
