@@ -21,7 +21,7 @@
         <div class="slideshow-container">
             <div class="mySlides">
                 <button class="button button1" onclick="window.location.href='Levels/level1.php'" ;>1</button>
-                <button class="button button2" onclick="window.location.href='newkanjis.html'" ;>2</button>
+                <button class="button button2" onclick="window.location.href='Levels/level2.php'" ;>2</button>
                 <button class="button button3" onclick="window.location.href='newkanjis.html'" ;>3</button>
                 <button class="button button1" onclick="window.location.href='newkanjis.php'" ;>4</button>
                 <button class="button button2" onclick="window.location.href='newkanjis.html'" ;>5</button>
@@ -655,6 +655,17 @@
             <span class="dot" onclick="currentSlide(9)"></span>
             <span class="dot" onclick="currentSlide(10)"></span>
         </div>
+
+        <?php
+                if(isset($_GET["error"])) {
+                    if ($_GET["error"] == "permissiondenied") {
+                        echo "<p>Permission denied! Complete previous levels!</p>";
+                    }
+                    if ($_GET["error"] == "somethingwentwrong") {
+                        echo "<p>Something went wrong! Try again!</p>";
+                    }
+                }
+        ?>
 
         <script src="JavaScript/newkanjis.js"></script>
     </center>

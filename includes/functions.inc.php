@@ -135,4 +135,15 @@ function validatepwd($pwd) {
     return $result;
 }
 
+function returnUserLevel($conn = null) {
+    require_once 'dbh.inc.php';
+    $currentUser = $_SESSION['useruid'];
+    $sql = "SELECT usersLevel FROM users WHERE usersUid = '$currentUser'";
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($result);
+    $usersLevel = $row["usersLevel"];
+    $intUsersLevel = (int)$usersLevel;
+
+    return $intUsersLevel;
+}
 ?>

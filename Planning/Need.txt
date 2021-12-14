@@ -1,11 +1,14 @@
 *Login page
 -Remember me button to work
 
+*Homepage
+-New kanjis block will show how long til level up
+
 *New Kanjis  
 -Make complete button to appear after last slide
--Find a way to keep track of the user account and his Progress
+-When someone completes a level, success message "Congratulations, you completed level echo usersLevel"
+-Only level someone up after 24 hours
 -Google voice over the kanji
--Magnifying lens explaining the new kanjis section 
 
 *Review page
 

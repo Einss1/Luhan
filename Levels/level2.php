@@ -2,6 +2,9 @@
 require_once '../includes/dbh.inc.php';
 require_once '../includes/functions.inc.php';
 session_start();
+if (returnUserLevel($conn) < 1) {
+    header('Location:../newkanjis.php?error=permissiondenied');
+}
 ?>
 
 <!DOCTYPE html>
@@ -160,7 +163,7 @@ session_start();
         </div>
         
         <?php
-            if (returnUserLevel($conn) < 1) {
+            if (returnUserLevel($conn) < 2) {
         
             ?><form action="../includes/levels.inc.php" method="post">
                 <button type="submit" name="submit">Complete level</button>
@@ -168,6 +171,7 @@ session_start();
         <?php
             }
         ?>
+
         <script src="../JavaScript/slides-new-kanjis.js"></script>
     </center>
 </html>
