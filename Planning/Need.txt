@@ -11,7 +11,7 @@
 -Google voice over the kanji
 
 *Review page
-
+-Make the id tag go up every submit!
 *Practice page
 
 *Progress page

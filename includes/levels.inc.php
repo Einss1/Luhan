@@ -6,6 +6,11 @@ if (isset($_POST["submit"])) {
     require_once 'functions.inc.php';
 
     $currentUser = $_SESSION['useruid'];
+    $currentDate = date("Y-m-d h:i:sa");
+
+    $sql = "UPDATE users SET timeLastLevel = '$currentDate' WHERE usersUid = '$currentUser'";
+    $result = mysqli_query($conn,$sql);
+
     $sql = "SELECT usersLevel FROM users WHERE usersUid = '$currentUser'";
     $result = mysqli_query($conn,$sql);
 

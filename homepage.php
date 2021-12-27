@@ -44,7 +44,7 @@
             </script>
         </button>
         <br><br>
-        <button class="button button2" onclick="window.location.href='newkanjis.html'" ;>Review</button>
+        <button class="button button2" onclick="window.location.href='review.php'" ;>Review</button>
         <br><br>
         <button class="button button3" onclick="window.location.href='newkanjis.html'" ;>Practice</button>
 
