@@ -2,6 +2,42 @@
 require_once 'includes/dbh.inc.php';
 require_once 'includes/functions.inc.php';
 session_start();
+
+if(!isset($_SESSION['id'])) {
+  $_SESSION['id'] = 1;
+}
+
+else{
+  if(isset($_POST['next'])){
+    $userLevel = returnUserLevel($conn);
+    $sql="SELECT * FROM kanjis WHERE level <= '$userLevel' and id = '".$_SESSION['id']."'";
+    $results = mysqli_query($conn,$sql);
+    
+    if ($results) {
+        while ($row=mysqli_fetch_array($results)) {
+            $id = $row['id'];
+            $kanji = $row['kanji'];
+            $meaning = $row['meaning'];
+        }
+        $meaningInput = $_POST['meaningInput'];
+        if ($meaningInput == $meaning) {
+            $_SESSION['id'] += 1;
+        }
+    }
+  }
+}
+
+$userLevel = returnUserLevel($conn);
+$sql="SELECT * FROM kanjis WHERE level <= '$userLevel' and id = '".$_SESSION['id']."'";
+$results = mysqli_query($conn,$sql);
+
+if ($results) {
+    while ($row=mysqli_fetch_array($results)) {
+        $id = $row['id'];
+        $kanji = $row['kanji'];
+        $meaning = $row['meaning'];
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +48,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review</title>
     <style><?php include 'CSS/levels.css'; ?></style>
+        
 </head>
 
 <body>
@@ -23,7 +60,6 @@ session_start();
         <?php 
             if(isset($_SESSION["useruid"])) {
                 echo "<li><a href='homepage.php'>Homepage</a></li>";
-                echo "<li><a href='newkanjis.php'> New Kanjis</a></li>";
             }else {
                 header("location: login.php");
             }
@@ -31,33 +67,16 @@ session_start();
         
         <br><br><br><br>
 
-        <?php
-            $id = idloop();
-            if(isset($_GET["success"])) {
-                $id = idloop();
-                if ($_GET["success"] == "rightAnswer") {
-                    echo "<p>Right Answer!</p>";
-                } 
-            }
-            if(isset($_GET["error"])) {
-                if ($_GET["error"] == "wrongAnswer") {
-                    echo "<p>Wrong Answer!</p>";
-                } 
-            }
-        ?>
-
         <div>
-        <p><?php echoKanji($conn, $id);
-            $_SESSION['id'] = $id;
-        ?></p>
-            
-            <form action="includes/review.inc.php" method="post">
-                <label for="meaning">Meaning</label><br>
-                <input name="meaning" type="text" style="text-align:center" placeholder="meaning" ><br><br>
-                <button type="submit" name="submit">submit</button>
-            </form>
+            <p><?php echo $kanji ?></p>
         </div>
+
+        <form name="exam" method="post" action="review.php">
+
+            <input type=text name="meaningInput"> <br> <br>
+
+            <input type="submit" name="next" value="Next">
+        </form>
         
-    
     </center>
 </html>
