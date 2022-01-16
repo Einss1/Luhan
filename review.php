@@ -8,23 +8,26 @@ if(!isset($_SESSION['id'])) {
 }
 
 else{
-  if(isset($_POST['next'])){
-    $userLevel = returnUserLevel($conn);
-    $sql="SELECT * FROM kanjis WHERE level <= '$userLevel' and id = '".$_SESSION['id']."'";
-    $results = mysqli_query($conn,$sql);
+    if(isset($_POST['next'])){
+        $userLevel = returnUserLevel($conn);
+        $sql="SELECT * FROM kanjis WHERE level <= '$userLevel' and id = '".$_SESSION['id']."'";
+        $results = mysqli_query($conn,$sql);
     
-    if ($results) {
-        while ($row=mysqli_fetch_array($results)) {
-            $id = $row['id'];
-            $kanji = $row['kanji'];
-            $meaning = $row['meaning'];
-        }
-        $meaningInput = $_POST['meaningInput'];
-        if ($meaningInput == $meaning) {
-            $_SESSION['id'] += 1;
+        if ($results) {
+            while ($row=mysqli_fetch_array($results)) {
+                $id = $row['id'];
+                $kanji = $row['kanji'];
+                $meaning = $row['meaning'];
+            }   
+            $meaningInput = $_POST['meaningInput'];
+            if ($meaningInput == $meaning) {
+                $_SESSION['id'] += 1;
+            }
+            if ($meaningInput != $meaning) {
+                echo $meaning;
+            }
         }
     }
-  }
 }
 
 $userLevel = returnUserLevel($conn);
@@ -47,7 +50,7 @@ if ($results) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review</title>
-    <style><?php include 'CSS/levels.css'; ?></style>
+    <style><?php include 'CSS/review.css'; ?></style>
         
 </head>
 
@@ -68,11 +71,10 @@ if ($results) {
         <br><br><br><br>
 
         <div>
-            <p><?php echo $kanji ?></p>
+            <p><?php echo $kanji; ?></p>
         </div>
 
         <form name="exam" method="post" action="review.php">
-
             <input type=text name="meaningInput"> <br> <br>
 
             <input type="submit" name="next" value="Next">

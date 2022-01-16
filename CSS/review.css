@@ -1,0 +1,143 @@
+#icon {
+    margin-top: 5%;
+    min-height: 130px;
+    max-width: 400px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+  
+li {
+    display: inline;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 500px;
+  position: relative;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  padding: 80px;
+  text-align: center;
+}
+
+/* Next & previous buttons */
+
+.prev, .next {
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: #888;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev {
+    position: absolute;
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+  position: absolute;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+
+.dot-container {
+  width: fit-content;
+  text-align: center;
+  padding: 20px;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.kan{
+    font-size: x-large;
+}
+
+.kanji {
+    font-size: xx-large;
+}
+
+.kata {
+    font-size: x-large;
+}
+
+.katakana{
+    font-size: xx-large;
+}
+
+.mean{
+    font-size: x-large;
+}
+
+.meaning{
+    font-size: xx-large;
+}
+
+
+/*------------------------------------*\
+    $SMALL COMPUTER SCREENS
+\*------------------------------------*/
+@media all and (max-width: 1034px) {
+
+    .slideshow-container {
+        width: 400px
+    }
+}
+
+/*------------------------------------*\
+    $IPAD AND TABLET
+\*------------------------------------*/
+
+@media only screen and (max-width: 767px) {
+
+    .slideshow-container {
+        width: 300px
+    }
+}
+
+/*------------------------------------*\
+    $IPHONE 4S LANDSCAPE
+\*------------------------------------*/
+
+@media only screen and (max-width : 480px) {
+
+    #icon{
+        width: 300px;
+    }
+
+    .slideshow-container {
+        width: 300px
+    }
+}
