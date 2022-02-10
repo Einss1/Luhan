@@ -18,13 +18,15 @@ else{
                 $id = $row['id'];
                 $kanji = $row['kanji'];
                 $meaning = $row['meaning'];
-            }   
+            }
+            $meaningCaps = strtoupper($meaning);
+            $meaningFirstLetterCaps =  ucfirst($meaning);
             $meaningInput = $_POST['meaningInput'];
-            if ($meaningInput == $meaning) {
+            if ($meaningInput == $meaning || $meaningInput == $meaningCaps || $meaningInput == $meaningFirstLetterCaps) {
                 $_SESSION['id'] += 1;
             }
-            if ($meaningInput != $meaning) {
-                echo $meaning;
+            if ($meaningInput != $meaning && $meaningCaps && $meaningFirstLetterCaps) {
+                    echo '<div class="meaning">'.$meaningFirstLetterCaps.'</div>';
             }
         }
     }
@@ -75,7 +77,7 @@ if ($results) {
         </div>
 
         <form name="exam" method="post" action="review.php">
-            <input type=text name="meaningInput"> <br> <br>
+            <input type=text name="meaningInput" required> <br> <br>
 
             <input type="submit" name="next" value="Next">
         </form>

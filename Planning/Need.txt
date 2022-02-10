@@ -11,10 +11,7 @@
 -Google voice over the kanji
 
 *Review page
--Show correct answer
 -Transfer the right ones to the next level / Keep the wrong ones in the same level
--what to do if meaningInput is empty
--create a submit button along with the next button
 
 *Practice page
 
