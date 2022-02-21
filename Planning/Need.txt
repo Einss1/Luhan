@@ -12,6 +12,8 @@
 
 *Review page
 -Transfer the right ones to the next level / Keep the wrong ones in the same level
+-Wrong ones show up in the queue
+-randomize the ids without repeating them
 
 *Practice page
 

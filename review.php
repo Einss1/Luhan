@@ -4,7 +4,16 @@ require_once 'includes/functions.inc.php';
 session_start();
 
 if(!isset($_SESSION['id'])) {
-  $_SESSION['id'] = 1;
+    $userLevel = returnUserLevel($conn);
+    $sql="SELECT * FROM kanjis WHERE level <= '$userLevel' ORDER BY rand() LIMIT 1";
+    $results = mysqli_query($conn,$sql);
+    
+    if ($results) {
+        while ($row=mysqli_fetch_array($results)) {
+            $id = $row['id'];
+        }
+    }    
+  $_SESSION['id'] = $id;
 }
 
 else{
@@ -19,14 +28,35 @@ else{
                 $kanji = $row['kanji'];
                 $meaning = $row['meaning'];
             }
-            $meaningCaps = strtoupper($meaning);
-            $meaningFirstLetterCaps =  ucfirst($meaning);
-            $meaningInput = $_POST['meaningInput'];
-            if ($meaningInput == $meaning || $meaningInput == $meaningCaps || $meaningInput == $meaningFirstLetterCaps) {
-                $_SESSION['id'] += 1;
-            }
-            if ($meaningInput != $meaning && $meaningCaps && $meaningFirstLetterCaps) {
-                    echo '<div class="meaning">'.$meaningFirstLetterCaps.'</div>';
+            if(isset($meaning) && ($meaning!==null)){
+                $meaningCaps = strtoupper($meaning);
+                $meaningFirstLetterCaps =  ucfirst($meaning);
+                $meaningInput = $_POST['meaningInput'];
+                if ($meaningInput == $meaning || $meaningInput == $meaningCaps || $meaningInput == $meaningFirstLetterCaps) {
+                    $seenRight = array();
+                    array_push($seenRight, $_SESSION['id']);
+                    print_r($seenRight);
+                    $sql="SELECT * FROM kanjis WHERE level <= '$userLevel' ORDER BY rand() LIMIT 1";
+                    $results2 = mysqli_query($conn,$sql);
+                    if ($results2) {
+                        while ($row=mysqli_fetch_array($results2)) {
+                            $id = $row['id'];
+                            echo $id;
+                            $alreadySeen= in_array($id, $seenRight);
+                            if ($id == $_SESSION['id'] || $alreadySeen == true) {
+                                echo "NEED TO RANDOMIZE"; 
+                                /* find a way to randomize again and then change $_SESSION['id'] to the unseen/ missed kanji */
+                            }
+                            if ($id != $_SESSION['id'] && $alreadySeen == false){
+                                echo "NO NEED TO RANDOMIZE";
+                            }
+                        }
+                    }  
+                }
+                if ($meaningInput != $meaning && $meaningCaps && $meaningFirstLetterCaps) {
+                    echo '<div class="meaning">'."The correct answer was: ".$meaningFirstLetterCaps.'</div>';
+                    $_SESSION['id'] += 1;
+                }
             }
         }
     }
@@ -73,14 +103,16 @@ if ($results) {
         <br><br><br><br>
 
         <div>
-            <p><?php echo $kanji; ?></p>
+            <p><?php if(isset($kanji) && ($kanji!==null)) {
+                    	echo $kanji;
+                        ?><form name="exam" method="post" action="review.php" autocomplete="off">
+                            <input type=text name="meaningInput" required> <br> <br>
+
+                            <input type="submit" name="next" value="Next">
+                        </form> <?php
+                    } else {
+                        echo "No more kanjis for now!";
+                    }     ?></p>
         </div>
-
-        <form name="exam" method="post" action="review.php">
-            <input type=text name="meaningInput" required> <br> <br>
-
-            <input type="submit" name="next" value="Next">
-        </form>
-        
     </center>
 </html>
