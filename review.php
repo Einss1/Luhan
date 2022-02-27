@@ -5,7 +5,7 @@ session_start();
 
 if(!isset($_SESSION['id'])) {
     $userLevel = returnUserLevel($conn);
-    $sql="SELECT * FROM kanjis WHERE level <= '$userLevel' ORDER BY rand() LIMIT 1";
+    $sql="SELECT * FROM kanjis WHERE level <= '$userLevel' ORDER BY rand()";
     $results = mysqli_query($conn,$sql);
     
     if ($results) {
@@ -14,6 +14,8 @@ if(!isset($_SESSION['id'])) {
         }
     }    
   $_SESSION['id'] = $id;
+  $_SESSION['seenRight'] = array();
+  $_SESSION['seenWrong'] = array();
 }
 
 else{
@@ -28,34 +30,38 @@ else{
                 $kanji = $row['kanji'];
                 $meaning = $row['meaning'];
             }
-            if(isset($meaning) && ($meaning!==null)){
+            if(isset($meaning)){
                 $meaningCaps = strtoupper($meaning);
                 $meaningFirstLetterCaps =  ucfirst($meaning);
                 $meaningInput = $_POST['meaningInput'];
+
                 if ($meaningInput == $meaning || $meaningInput == $meaningCaps || $meaningInput == $meaningFirstLetterCaps) {
-                    $seenRight = array();
-                    array_push($seenRight, $_SESSION['id']);
-                    print_r($seenRight);
-                    $sql="SELECT * FROM kanjis WHERE level <= '$userLevel' ORDER BY rand() LIMIT 1";
-                    $results2 = mysqli_query($conn,$sql);
-                    if ($results2) {
-                        while ($row=mysqli_fetch_array($results2)) {
-                            $id = $row['id'];
-                            echo $id;
-                            $alreadySeen= in_array($id, $seenRight);
-                            if ($id == $_SESSION['id'] || $alreadySeen == true) {
-                                echo "NEED TO RANDOMIZE"; 
-                                /* find a way to randomize again and then change $_SESSION['id'] to the unseen/ missed kanji */
-                            }
-                            if ($id != $_SESSION['id'] && $alreadySeen == false){
-                                echo "NO NEED TO RANDOMIZE";
+                    if (!in_array($id, $_SESSION['seenRight'])) {
+                        array_push($_SESSION['seenRight'],$id);
+                    }
+                    // find a way to stop while loop if there's no more data (&& seenRight < database size)
+                    while (in_array($id, $_SESSION['seenRight'])) {
+                        $sql="SELECT * FROM kanjis WHERE level <= '$userLevel' ORDER BY rand()";
+                        $results2 = mysqli_query($conn,$sql);
+                        
+                        if ($results2) {
+                            while ($row=mysqli_fetch_array($results2)) {
+                                $id = $row['id'];
                             }
                         }
-                    }  
+                        $_SESSION['id'] = $id;
+                    }
                 }
+
                 if ($meaningInput != $meaning && $meaningCaps && $meaningFirstLetterCaps) {
                     echo '<div class="meaning">'."The correct answer was: ".$meaningFirstLetterCaps.'</div>';
-                    $_SESSION['id'] += 1;
+                    var_dump($_SESSION['seenWrong']);
+                    if (in_array($id, $_SESSION['seenWrong'])) {
+                        //find a way to bring back the ones that were wrong
+                    }
+                    if (!in_array($id, $_SESSION['seenWrong']) ) {
+                        array_push($_SESSION['seenWrong'],$id);
+                    }
                 }
             }
         }

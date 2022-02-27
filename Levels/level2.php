@@ -35,113 +35,97 @@ if (returnUserLevel($conn) < 1) {
         <div class="newkanjis">
             <div class="slideshow-container">
                 <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji">一</p>
-                    <p class="kata">Katakana</p>
-                    <p class="katakana">いち</p>
+                    <p class="kata">Hirigana</p>
+                    <p class="katakana">こんにちわ</p>
                     <p class="roman">Romanji</p>
-                    <p class="romanji">ichi</p>
+                    <p class="romanji">kon’nichiwa</p>
                     <p class="mean">Meaning</p>
-                    <p class="meaning">one</p>
+                    <p class="meaning">Hello</p>
+                </div>
+
+                <div class="mySlides">
+                    <p class="kata">Hirigana</p>
+                    <p class="katakana">さようなら</p>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji">sayounara</p>
+                    <p class="mean">Meaning</p>
+                    <p class="meaning">Bye</p>
                 </div>
 
                 <div class="mySlides">
                     <p class="kan">Kanji</p>
-                    <p class="kanji">二 </p>
-                    <p class="kata">Katakana</p>
-                    <p class="katakana">に</p>
+                    <p class="kanji">お願いします </p>
+                    <p class="kata">Hirigana</p>
+                    <p class="katakana">おねがいします</p>
                     <p class="roman">Romanji</p>
-                    <p class="romanji">ni</p>
+                    <p class="romanji">onegaishimasu</p>
                     <p class="mean">Meaning</p>
-                    <p class="meaning">two</p>
+                    <p class="meaning">Please</p>
+                </div>
+                
+                <div class="mySlides">
+                    <p class="kata">Hirigana</p>
+                    <p class="katakana">ありがとうございます。</p>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji">arigatougozaimasu</p>
+                    <p class="mean">Meaning</p>
+                    <p class="meaning">Thank you</p>
+                </div>
+
+                <div class="mySlides">
+                    <p class="kata">Hirigana</p>
+                    <p class="katakana">はい</p>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji">hai</p>
+                    <p class="mean">Meaning</p>
+                    <p class="meaning">Yes</p>
+                </div>
+
+                <div class="mySlides">
+                    <p class="kata">Hirigana</p>
+                    <p class="katakana">いいえ</p>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji">iie</p>
+                    <p class="mean">Meaning</p>
+                    <p class="meaning">No</p>
+                </div>
+
+                <div class="mySlides">
+                    <p class="kata">Hirigana</p>
+                    <p class="katakana">オーケー</p>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji">ok</p>
+                    <p class="mean">Meaning</p>
+                    <p class="meaning">Ok</p>
                 </div>
 
                 <div class="mySlides">
                     <p class="kan">Kanji</p>
-                    <p class="kanji">三 </p>
-                    <p class="kata">Katakana</p>
-                    <p class="katakana">さん</p>
+                    <p class="kanji">助けて</p>
+                    <p class="kata">Hirigana</p>
+                    <p class="katakana">たすけて</p>
                     <p class="roman">Romanji</p>
-                    <p class="romanji">san</p>
+                    <p class="romanji">tasukete</p>
                     <p class="mean">Meaning</p>
-                    <p class="meaning">three</p>
+                    <p class="meaning">Help</p>
                 </div>
 
                 <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji">四 </p>
-                    <p class="kata">Katakana</p>
-                    <p class="katakana">し/よん</p>
+                    <p class="kata">Hirigana</p>
+                    <p class="katakana">ごめんなさい</p>
                     <p class="roman">Romanji</p>
-                    <p class="romanji">shi, yon</p>
+                    <p class="romanji">gomennasai</p>
                     <p class="mean">Meaning</p>
-                    <p class="meaning">four</p>
+                    <p class="meaning">Sorry</p>
                 </div>
 
                 <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji">五 </p>
-                    <p class="kata">Katakana</p>
-                    <p class="katakana">ご</p>
+                    <p class="kata">Hirigana</p>
+                    <p class="katakana">すみません</p>
                     <p class="roman">Romanji</p>
-                    <p class="romanji">go</p>
+                    <p class="romanji">sumimasen</p>
                     <p class="mean">Meaning</p>
-                    <p class="meaning">five</p>
-                </div>
-
-                <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji">六 </p>
-                    <p class="kata">Katakana</p>
-                    <p class="katakana">ろく</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">roku</p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning">six</p>
-                </div>
-
-                <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji">七 </p>
-                    <p class="kata">Katakana</p>
-                    <p class="katakana">しち/ なな</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">shichi, nana</p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning">seven</p>
-                </div>
-
-                <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji">八 </p>
-                    <p class="kata">Katakana</p>
-                    <p class="katakana">はち</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">hachi</p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning">eight</p>
-                </div>
-
-                <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji">九 </p>
-                    <p class="kata">Katakana</p>
-                    <p class="katakana">きゅう</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">kyuu</p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning">nine</p>
-                </div>
-
-                <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji">十 </p>
-                    <p class="kata">Katakana</p>
-                    <p class="katakana">じゅう</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">jyuu</p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning">ten </p>
+                    <p class="meaning">Excuse me</p>
                 </div>
 
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

@@ -1,0 +1,29 @@
+*New Kanjis  
+-Make complete button to appear after last slide
+-When someone completes a level, success message "Congratulations, you completed level echo usersLevel"
+-Only level someone up after 24 hours
+-Google voice over the kanji
+
+*Review page
+-Wrong ones show up in the queue
+-If user exits, array saves on database
+
+*Practice page
+
+*Progress page
+
+*Information page
+
+*Terms of agreement
+
+*Profile page
+-Username, email and password can't be the same as it was
+-Delete account button brings to a different page where the user is asked to 
+log in and confirm he wants to delete it.
+
+
+/-------- Design --------/
+
+- Update Account button Green
+- Delete Account button Red
+- Toolbar on top of all pages

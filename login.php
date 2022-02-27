@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luhan</title>
-    <style><?php include 'CSS\index.css'?></style>
+    <style><?php include 'CSS\login.css'?></style>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         <img src="./Images/logo.png" id="icon"> <br><br>
 
         <section class="signup-form">
-            <form action="includes/login.inc.php" method="post">
+            <form action="includes/login.inc.php" method="post" autocomplete="off">
                 <label for="email">Email / Username</label><br>
                 <input type="text" style="text-align:center" placeholder="Email / Username" name="uid" required><br><br>
 
@@ -24,7 +24,6 @@
 
                 <button type="submit" name="submit">Log In</button>
                 <br><br>
-                <input type="checkbox" name="remember">Remember me <br><br>
             </form>
 
             <?php
