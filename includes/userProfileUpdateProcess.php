@@ -104,6 +104,7 @@ if(isset($_POST['update'])) {
 }
 
 if(isset($_POST['delete'])) {
+    createConfirmationmbox();
     include('dbh.inc.php');
     $currentUser = $_SESSION['useruid'];
     $sql = "DELETE FROM users WHERE usersUid = '$currentUser'";

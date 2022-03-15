@@ -32,8 +32,8 @@ session_start();
         <div class="newkanjis">
             <div class="slideshow-container">
                 <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji1">一</p>
+                    <p class="kan">Kanji</p> 
+                    <p class="kanji1">一</p> 
                     <p class="kata">Katakana</p>
                     <p class="katakana">いち</p>
                     <p class="roman">Romanji</p>
@@ -44,7 +44,7 @@ session_start();
 
                 <div class="mySlides">
                     <p class="kan">Kanji</p>
-                    <p class="kanji2">二 </p>
+                    <p class="kanji2">二</p> 
                     <p class="kata">Katakana</p>
                     <p class="katakana">に</p>
                     <p class="roman">Romanji</p>
@@ -55,7 +55,7 @@ session_start();
 
                 <div class="mySlides">
                     <p class="kan">Kanji</p>
-                    <p class="kanji3">三 </p>
+                    <p class="kanji3">三 </p> 
                     <p class="kata">Katakana</p>
                     <p class="katakana">さん</p>
                     <p class="roman">Romanji</p>
@@ -77,7 +77,7 @@ session_start();
 
                 <div class="mySlides">
                     <p class="kan">Kanji</p>
-                    <p class="kanji5">五 </p>
+                    <p class="kanji5">五 </p> 
                     <p class="kata">Katakana</p>
                     <p class="katakana">ご</p>
                     <p class="roman">Romanji</p>
@@ -88,7 +88,7 @@ session_start();
 
                 <div class="mySlides">
                     <p class="kan">Kanji</p>
-                    <p class="kanji6">六 </p>
+                    <p class="kanji6">六 </p> 
                     <p class="kata">Katakana</p>
                     <p class="katakana">ろく</p>
                     <p class="roman">Romanji</p>
@@ -99,7 +99,7 @@ session_start();
 
                 <div class="mySlides">
                     <p class="kan">Kanji</p>
-                    <p class="kanji7">七 </p>
+                    <p class="kanji7">七 </p> 
                     <p class="kata">Katakana</p>
                     <p class="katakana">しち/ なな</p>
                     <p class="roman">Romanji</p>
@@ -110,7 +110,7 @@ session_start();
 
                 <div class="mySlides">
                     <p class="kan">Kanji</p>
-                    <p class="kanji8">八 </p>
+                    <p class="kanji8">八 </p> 
                     <p class="kata">Katakana</p>
                     <p class="katakana">はち</p>
                     <p class="roman">Romanji</p>
@@ -121,7 +121,7 @@ session_start();
 
                 <div class="mySlides">
                     <p class="kan">Kanji</p>
-                    <p class="kanji9">九 </p>
+                    <p class="kanji9">九 </p> 
                     <p class="kata">Katakana</p>
                     <p class="katakana">きゅう</p>
                     <p class="roman">Romanji</p>
@@ -158,10 +158,9 @@ session_start();
             <span class="dot" onclick="currentSlide(9)"></span>
             <span class="dot" onclick="currentSlide(10)"></span>
         </div>
-        
+
         <?php
             if (returnUserLevel($conn) < 1) {
-        
             ?><form action="../includes/levels.inc.php" method="post">
                 <button type="submit" name="submit">Complete level</button>
             </form>

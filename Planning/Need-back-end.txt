@@ -1,12 +1,10 @@
 *New Kanjis  
+-https://cloud.google.com/text-to-speech/  -  Google API for text2speech
+-Only level someone up after 24 hours - Do after website is fully complete
+
 -Make complete button to appear after last slide
--When someone completes a level, success message "Congratulations, you completed level echo usersLevel"
--Only level someone up after 24 hours
--Google voice over the kanji
 
 *Review page
--Wrong ones show up in the queue
--If user exits, array saves on database
 
 *Practice page
 
