@@ -5,6 +5,8 @@
 -Make complete button to appear after last slide
 
 *Review page
+-https://cloud.google.com/text-to-speech/  -  Google API for text2speech
+-Progress bar under each kanji
 
 *Practice page
 
@@ -18,10 +20,3 @@
 -Username, email and password can't be the same as it was
 -Delete account button brings to a different page where the user is asked to 
 log in and confirm he wants to delete it.
-
-
-/-------- Design --------/
-
-- Update Account button Green
-- Delete Account button Red
-- Toolbar on top of all pages
