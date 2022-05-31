@@ -7,8 +7,6 @@ session_start();
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
         <title>Lumorah</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="Images/monkeylogo.png" />
@@ -42,7 +40,7 @@ session_start();
                                 <h1 class="display-5 fw-bolder text-white mb-2">Lumorah</h1>
                                 <p class="lead fw-normal text-white-50 mb-4">A fun and easy way to learn Japanese!</p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="register.php">Get Started</a>
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="signup.php">Get Started</a>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +104,7 @@ session_start();
                     <div class="col-auto">
                         <a class="link-light small" href="#!">Terms</a>
                         <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Contact</a>
+                        <a class="link-light small" href="contact.php">Contact</a>
                     </div>
                 </div>
             </div>

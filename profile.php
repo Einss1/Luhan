@@ -5,28 +5,47 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <style><?php include 'CSS\profile.css'?></style>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Profile - Lumorah</title>
+        <link rel="icon" type="image/x-icon" href="Images/monkeylogo.png" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <style><?php include 'CSS\profile.css'?></style>
 </head>
 
 <body>
 <center>
 
+<body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.php">Lumorah</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <?php 
+                if(isset($_SESSION["useruid"])) {
+                    echo "<li><a href='homepage.php'>Homepage</a></li>";
+                    echo "<li><a href='progress.html'>Progress</a></li>";
+                    echo "<li><a href='profile.php'>Profile</a></li>";
+                    echo "<li><a href='includes/logout.inc.php'> Log out </a></li>";
+                }
+                else {
+                    header("location: ../luhan/login.php");
+                }
+            ?>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
     <img src="./Images/logo.png" id="icon"> <br><br>
 
-    <?php 
-        if(isset($_SESSION["useruid"])) {
-            echo "<li><a href='homepage.php'>Homepage </a></li>";
-            echo "<li><a href='includes/logout.inc.php'>Log out </a></li> <br><br>";
-        }
-        else {
-            header("location: ../luhan/login.php");
-            }
-    ?>
 
     <?php
         if(isset($_GET['error'])){
