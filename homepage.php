@@ -26,9 +26,9 @@ session_start();
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <?php 
                 if(isset($_SESSION["useruid"])) {
-                    echo "<li><a href='progress.html'>Progress </a></li>";
-                    echo "<li><a href='profile.php'>Profile </a></li>";
-                    echo "<li><a href='includes/logout.inc.php'> Log out </a></li>";
+                    echo '<li class="nav-item"><a class="nav-link" href="progress.html">Progress </a></li>';
+                    echo '<li class="nav-item"><a class="nav-link" href="profile.php">Profile </a></li>';
+                    echo '<li class="nav-item"><a class="nav-link" href="includes/logout.inc.php"> Log out </a></li>';
                 }
                 else {
                     header("location: ../luhan/login.php");
@@ -39,25 +39,12 @@ session_start();
                 </div>
             </nav>
     <center>
-        <img src="./Images/logo2.png" id="icon"> <br><br>
-        <br><br>
-
-        <button class="button button1" onclick="window.location.href='newkanjis.php'" ;>New Kanjis
-            <p id="date"></p>
-            <script>
-                var d = new Date();
-                var date = d.getDate();
-                var year = d.getFullYear();
-                var month = d.getMonth();
-                var monthArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                month = monthArr[month];
-                document.getElementById("date").innerHTML = date + ", " + month + ", " + year;
-            </script>
-        </button>
+        <br><br><br><br><br><br><br><br><br>
+        <button class="button button1" onclick="window.location.href='newkanjis.php'" ;>New Kanjis </button>
         <br><br>
         <button class="button button2" onclick="window.location.href='review.php'" ;>Review</button>
         <br><br>
-        <button class="button button3" onclick="window.location.href='newkanjis.html'" ;>Practice</button>
+        <button class="button button3" onclick="window.location.href='newkanjis.html'" ;>Hiragana - Katakana</button>
 
 
 

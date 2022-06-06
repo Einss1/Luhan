@@ -26,9 +26,9 @@ session_start();
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <?php 
                 if(isset($_SESSION["useruid"])) {
-                    echo "<li><a href='homepage.php'>Homepage </a></li>";
-                    echo "<li><a href='profile.php'>Profile </a></li>";
-                    echo "<li><a href='includes/logout.inc.php'> Log out </a></li>";
+                    echo '<li class="nav-item"><a class="nav-link"href="homepage.php">Homepage </a></li>';
+                    echo '<li class="nav-item"><a class="nav-link"href="profile.php">Profile </a></li>';
+                    echo '<li class="nav-item"><a class="nav-link"href="includes/logout.inc.php"> Log out </a></li>';
                 }
                 else {
                     header("location: ../luhan/login.php");
@@ -39,7 +39,7 @@ session_start();
                 </div>
             </nav>
     <center> 
-        <img src="./Images/logo2.png" id="icon"> <br><br>
+        <img src="https://dummyimage.com/600x300/343a40/6c757d" id="icon"> <br><br>
 
         <div class="slideshow-container">
             <div class="mySlides">

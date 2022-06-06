@@ -1,18 +1,17 @@
+-Make everything responsive
+-Proficiency test when account is created
+
 *New Kanjis  
 -https://cloud.google.com/text-to-speech/  -  Google API for text2speech
 -Only level someone up after 24 hours - Do after website is fully complete
-
 -Make complete button to appear after last slide
 
 *Review page
 -https://cloud.google.com/text-to-speech/  -  Google API for text2speech
 -Progress bar under each kanji
-
-*Practice page
+-What to do when level is reviewed
 
 *Progress page
-
-*Information page
 
 *Terms of agreement
 
@@ -20,3 +19,4 @@
 -Username, email and password can't be the same as it was
 -Delete account button brings to a different page where the user is asked to 
 log in and confirm he wants to delete it.
+-Why they're deleting their account

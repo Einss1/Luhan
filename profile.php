@@ -31,10 +31,10 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <?php 
                 if(isset($_SESSION["useruid"])) {
-                    echo "<li><a href='homepage.php'>Homepage</a></li>";
-                    echo "<li><a href='progress.html'>Progress</a></li>";
-                    echo "<li><a href='profile.php'>Profile</a></li>";
-                    echo "<li><a href='includes/logout.inc.php'> Log out </a></li>";
+                    echo '<li class="nav-item"><a class="nav-link" href="homepage.php">Homepage</a></li>';
+                    echo '<li class="nav-item"><a class="nav-link" href="progress.html">Progress</a></li>';
+                    echo '<li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>';
+                    echo '<li class="nav-item"><a class="nav-link" href="includes/logout.inc.php"> Log out </a></li>';
                 }
                 else {
                     header("location: ../luhan/login.php");
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </nav>
-    <img src="./Images/logo.png" id="icon"> <br><br>
+    <img src="https://dummyimage.com/600x300/343a40/6c757d" id="icon"> <br><br>
 
 
     <?php

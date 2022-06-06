@@ -13,7 +13,8 @@ if (returnUserLevel($conn) < 1) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 2</title>
+    <title>Level 1</title>
+    <link href="../css/styles.css" rel="stylesheet" />
     <style><?php include '../CSS/levels.css'; ?></style>
 </head>
 
@@ -21,16 +22,26 @@ if (returnUserLevel($conn) < 1) {
     
 </body>
     <center>
-        <img src="../Images/logo2.png" id="icon"> <br><br>
-
-        <?php 
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.php">Lumorah</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <?php 
             if(isset($_SESSION["useruid"])) {
-                echo "<li><a href='../homepage.php'>Homepage</a></li>";
-                echo "<li><a href='../newkanjis.php'> New Kanjis</a></li>";
+                echo '<li class="nav-item"><a class="nav-link" href="../homepage.php">Homepage</a></li>';
+                echo '<li class="nav-item"><a class="nav-link" href="../newkanjis.php"> New Kanjis</a></li>';
             }else {
                 header("location: ../luhan/login.php");
             }
         ?>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <img src="https://dummyimage.com/600x300/343a40/6c757d" id="icon"> <br><br>
         
         <div class="newkanjis">
             <div class="slideshow-container">
