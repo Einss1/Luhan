@@ -103,17 +103,4 @@ if(isset($_POST['update'])) {
     echo 'Something went wrong! Try Again!';
 }
 
-if(isset($_POST['delete'])) {
-    createConfirmationmbox();
-    include('dbh.inc.php');
-    $currentUser = $_SESSION['useruid'];
-    $sql = "DELETE FROM users WHERE usersUid = '$currentUser'";
-    $results = mysqli_query($conn,$sql);
-    session_destroy();
-    header('Location:../login.php?success=accountDeleted');
-    exit;
-} else {
-    echo 'Something went wrong! Try Again!';
-}
-
 ?>

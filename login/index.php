@@ -61,13 +61,13 @@ session_start();
             if($_GET['success'] == 'profileUpdated') {
                 ?>
                  <small class="alert alert-success">Profile updated!</small>
-                <br>
+                 <br><br>
             <?php   
             }
             if($_GET['success'] == 'accountDeleted') {
                 ?>
                  <small class="alert alert-success">Account Deleted</small>
-                <br>
+                <br><br>
             <?php   
             }
         }

@@ -10,43 +10,47 @@ if (isset($_POST["submit"])) {
    require_once 'functions.inc.php';
 
    if (emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) !== false) {
-    header("location: ../signup.php?error=emptyinput");
+    header("location: ../login/signup.php?error=emptyinput");
     exit();
    }
 
-   if (invalidUid($username) !== false) {
-    header("location: ../signup.php?error=invaliduid");
+   else if (invalidUid($username) !== false) {
+    header("location: ../login/signup.php?error=invaliduid");
     exit();
    }
 
-   if (invalidEmail($email) !== false) {
-    header("location: ../signup.php?error=invalidemail");
+   else if (invalidEmail($email) !== false) {
+    header("location: ../login/signup.php?error=invalidemail");
     exit();
    }
 
-   if (pwdMatch($pwd, $pwdRepeat) !== false) {
-    header("location: ../signup.php?error=passwordsdontmatch");
+   else if (pwdMatch($pwd, $pwdRepeat) !== false) {
+    header("location: ../login/signup.php?error=passwordsdontmatch");
     exit();
    }
 
-   if (uidExists($conn, $username, $null) !== false) {
-    header("location: ../signup.php?error=usernametaken");
+   else if (uidExists($conn, $username, $null) !== false) {
+    header("location: ../login/signup.php?error=usernametaken");
     exit();
    }
 
-   if (uidExists($conn, $null , $email) !== false) {
-    header("location: ../signup.php?error=emailtaken");
+   else if (uidExists($conn, $null , $email) !== false) {
+    header("location: ../login/signup.php?error=emailtaken");
     exit();
    }
 
-   if (validatepwd($pwd) !== false) {
-    header("location: ../signup.php?error=weakPassword");
+   else if (validatepwd($pwd) !== false) {
+    header("location: ../login/signup.php?error=weakPassword");
     exit();
    }
 
-   createUser($conn, $name, $email, $username, $pwd);
+    else {
+     createUser($conn, $name, $email, $username, $pwd); 
+     header("location: ../login/signup.php?error=none");
+     exit();
+    }
 }else {
-    header("location: ../signup.php");
+    header("location: ../login/signup.php");
     exit();
 }
 

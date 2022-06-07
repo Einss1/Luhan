@@ -38,7 +38,7 @@ session_start();
 
         <section class="signup-form">
             <div>
-                <form action="includes/signup.inc.php" method="post" autocomplete="off">
+                <form action="../includes/signup.inc.php" method="post" autocomplete="off">
                     <label for="name">Full name</label><br>
                     <input name="name" type="text" style="text-align:center" placeholder="Full name" ><br><br>
 
@@ -46,13 +46,13 @@ session_start();
                     <input name="email" type="text" style="text-align:center" placeholder="Email" ><br><br>
 
                     <label for="uid">Username</label><br>
-                    <input name="uid" type="text" style="text-align:center" placeholder="Username" ><br><br>
+                    <input name="uid" type="text" style="text-align:center" placeholder="Username" autocomplete="off"><br><br>
 
                     <label for="pwd">Password</label><br>
-                    <input name="pwd" type="password" style="text-align:center" placeholder="Password" ><br><br>
+                    <input name="pwd" type="password" style="text-align:center" placeholder="Password" autocomplete="off"><br><br>
 
                     <label>Re-type password</label><br>
-                    <input name="pwdrepeat" type="password" style="text-align:center" placeholder="Re-type password" ><br><br>
+                    <input name="pwdrepeat" type="password" style="text-align:center" placeholder="Re-type password" autocomplete="off"><br><br>
 
                     <input type="checkbox" id="terms" required>
                     <a>Agree with the </a><a href="terms.html" target="_blank">terms</a><br><br>
@@ -73,7 +73,7 @@ session_start();
                         echo "<p>Choose a proper email!</p>";
                     }
                     else if ($_GET["error"] == "passwordsdontmatch") {
-                        echo "<p>Passwords doesn't match!</p>";
+                        echo "<p>Passwords don't match!</p>";
                     }
                     else if ($_GET["error"] == "stmtfailed") {
                         echo "<p>Something went wrong, try again!</p>";

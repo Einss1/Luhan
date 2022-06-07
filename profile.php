@@ -117,16 +117,19 @@
 
                 <input type="submit" name="update" value="Update Account">
                 <br><br><br><br>
-                <input class="delete" type="submit" name="delete" value="Delete Account">
                                 <?php
                             }
                         }
                     }
                 ?>
             </form>
+
+            <form action="includes/deleteProfileProcess.php" method ="POST" enctype="multipart/form-data">
+                <input class="delete" type="submit" name="delete" value="Delete Account">
+            </form>
+
         </div>
     </section>
-
 </center>    
 </body>
 
