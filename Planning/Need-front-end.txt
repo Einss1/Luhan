@@ -1,3 +1,0 @@
-- Update Account button Green
-- Delete Account button Red
-- Toolbar on top of all pages

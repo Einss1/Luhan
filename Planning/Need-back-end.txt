@@ -1,3 +1,4 @@
+-Make all SQL prepared statements
 -Make everything responsive
 -Proficiency test when account is created
 
@@ -7,9 +8,10 @@
 -Make complete button to appear after last slide
 
 *Review page
--https://cloud.google.com/text-to-speech/  -  Google API for text2speech
--Progress bar under each kanji
--What to do when level is reviewed
+- if user leaves page, all variables are reset
+- https://cloud.google.com/text-to-speech/  -  Google API for text2speech
+- Progress bar under each kanji
+- What to do when level is reviewed
 
 *Progress page
 
@@ -33,5 +35,4 @@
 
 -Delete account button brings to a different page where the user is asked to 
 log in and confirm he wants to delete it.
-
 -Why they deleted their account.

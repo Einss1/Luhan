@@ -43,8 +43,8 @@ session_start();
 
         <div class="slideshow-container">
             <div class="mySlides">
-                <button class="button button1" onclick="window.location.href='Review/level1.php'" ;>1</button>
-                <button class="button button2" onclick="window.location.href='Levels/level2.php'" ;>2</button>
+                <button class="button button1" onclick="window.location.href='Review/level1.php'";>1</button>
+                <button class="button button2" onclick="window.location.href='Review/level1.php'" ;>2</button>
                 <button class="button button3" onclick="window.location.href='newkanjis.html'" ;>3</button>
                 <button class="button button1" onclick="window.location.href='newkanjis.php'" ;>4</button>
                 <button class="button button2" onclick="window.location.href='newkanjis.html'" ;>5</button>

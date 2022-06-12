@@ -1,27 +1,50 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Kanjis</title>
-    <link rel="stylesheet" href="../CSS/newkanjis.css">
-</head>
-
-<body>
-    
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Register - Lumorah</title>
+        <link rel="icon" type="image/x-icon" href="Images/monkeylogo.png" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="..\css/styles.css" rel="stylesheet" />
+        <style><?php include '..\CSS\newkanjis.css'?></style>
+    </head>
+    <body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.php">Lumorah</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <?php 
+                if(isset($_SESSION["useruid"])) {
+                    echo '<li class="nav-item"><a class="nav-link"href="homepage.php">Homepage </a></li>';
+                    echo '<li class="nav-item"><a class="nav-link"href="profile.php">Profile </a></li>';
+                    echo '<li class="nav-item"><a class="nav-link"href="includes/logout.inc.php"> Log out </a></li>';
+                }
+                else {
+                    header("location: ../luhan/login.php");
+                }
+            ?>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
     <center>
-        <img src="./Images/logo2.png" id="icon"> <br><br>
-
-        <ul>
-            <li><a href="homepage.html">Homepage</a></li>
-        </ul>
+        <img src="https://dummyimage.com/600x300/343a40/6c757d" id="icon"> <br><br>
 
         <div class="slideshow-container">
             <div class="mySlides">
-                <button class="button button1" onclick="window.location.href='Levels/level1.php'" ;>1</button>
-                <button class="button button2" onclick="window.location.href='newkanjis.html'" ;>2</button>
+                <button class="button button1" onclick="window.location.href='level1.php?level=1'";>1</button>
+                <button class="button button2" onclick="window.location.href='level1.php?level=2'" ;>2</button>
                 <button class="button button3" onclick="window.location.href='newkanjis.html'" ;>3</button>
                 <button class="button button1" onclick="window.location.href='newkanjis.php'" ;>4</button>
                 <button class="button button2" onclick="window.location.href='newkanjis.html'" ;>5</button>
@@ -655,6 +678,17 @@
             <span class="dot" onclick="currentSlide(9)"></span>
             <span class="dot" onclick="currentSlide(10)"></span>
         </div>
+
+        <?php
+                if(isset($_GET["error"])) {
+                    if ($_GET["error"] == "permissiondenied") {
+                        echo "<p>Permission denied! Complete previous levels!</p>";
+                    }
+                    if ($_GET["error"] == "somethingwentwrong") {
+                        echo "<p>Something went wrong! Try again!</p>";
+                    }
+                }
+        ?>
 
         <script src="../JavaScript/newkanjis.js"></script>
     </center>
