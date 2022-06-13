@@ -25,21 +25,21 @@ if (isset($_POST["submit"])) {
             $newLevel = $intUsersLevel + 1;
             $sql = "UPDATE users SET usersLevel = '$newLevel' WHERE usersUid = '$currentUser'";
             $results = mysqli_query($conn,$sql);
-            header('Location:../newkanjis.php');
+            header('Location:../new_kanjis.php');
         }
         if ($usersLevel !=0){
             $intUsersLevel = (int)$usersLevel;
             $newLevel = $intUsersLevel + 1;
             $sql = "UPDATE users SET usersLevel = '$newLevel' WHERE usersUid = '$currentUser'";
             $results = mysqli_query($conn,$sql);
-            header('Location:../newkanjis.php');
+            header('Location:../new_kanjis.php');
         } 
     } else {
-        header('Location:../newkanjis.php?error=somethingwentwrong');
+        header('Location:../new_kanjis.php?error=somethingwentwrong');
     }
 
 } else{
-    header("location: ../login.php");
+    header("location: ../login/index.php");
     exit();
 }
 

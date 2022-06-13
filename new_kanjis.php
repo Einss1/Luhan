@@ -1,9 +1,30 @@
 <?php
-require_once '../includes/dbh.inc.php';
-require_once '../includes/functions.inc.php';
+require_once 'includes/dbh.inc.php';
+require_once 'includes/functions.inc.php';
 session_start();
-if (returnUserLevel($conn) < 1) {
-    header('Location:../newkanjis.php?error=permissiondenied');
+
+if (empty($_GET)) {
+    header('Location:new_kanjis_menu.php');
+}
+
+if ($_GET['level'] > returnUserLevel($conn)) {
+    header('Location:new_kanjis_menu.php');
+}
+
+else {
+    $x = $_GET['level'];
+    $userLevel = returnUserLevel($conn);
+    $sql="SELECT * FROM kanjis WHERE level = '".$x."'";
+    $results = mysqli_query($conn,$sql);
+    
+    $kanji = array();
+    $meaning = array();
+    if ($results) {
+        while ($row=mysqli_fetch_array($results)) {
+            $kanji[] = $row['kanji'];
+            $meaning[] = $row['meaning'];
+        }
+    }
 }
 ?>
 
@@ -14,8 +35,8 @@ if (returnUserLevel($conn) < 1) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 1</title>
-    <link href="../css/styles.css" rel="stylesheet" />
-    <style><?php include '../CSS/levels.css'; ?></style>
+    <link href="css/styles.css" rel="stylesheet" />
+    <style><?php include 'CSS/levels.css'; ?></style>
 </head>
 
 <body>
@@ -46,97 +67,77 @@ if (returnUserLevel($conn) < 1) {
         <div class="newkanjis">
             <div class="slideshow-container">
                 <div class="mySlides">
-                    <p class="kata">Hirigana</p>
-                    <p class="katakana">こんにちわ</p>
+                    <p class="kan">Kanji</p> 
+                    <p class="kanji1"><?php print_r($kanji[0])?></p> 
+                    <!--<p class="kata">Katakana</p>
+                    <p class="katakana">いち</p>
                     <p class="roman">Romanji</p>
-                    <p class="romanji">kon’nichiwa</p>
+                    <p class="romanji">ichi</p>-->
                     <p class="mean">Meaning</p>
-                    <p class="meaning">Hello</p>
-                </div>
-
-                <div class="mySlides">
-                    <p class="kata">Hirigana</p>
-                    <p class="katakana">さようなら</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">sayounara</p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning">Bye</p>
+                    <p class="meaning"><?php print_r($meaning[0])?></p>
                 </div>
 
                 <div class="mySlides">
                     <p class="kan">Kanji</p>
-                    <p class="kanji">お願いします </p>
-                    <p class="kata">Hirigana</p>
-                    <p class="katakana">おねがいします</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">onegaishimasu</p>
+                    <p class="kanji2"><?php print_r($kanji[1])?></p> 
                     <p class="mean">Meaning</p>
-                    <p class="meaning">Please</p>
-                </div>
-                
-                <div class="mySlides">
-                    <p class="kata">Hirigana</p>
-                    <p class="katakana">ありがとうございます。</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">arigatougozaimasu</p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning">Thank you</p>
-                </div>
-
-                <div class="mySlides">
-                    <p class="kata">Hirigana</p>
-                    <p class="katakana">はい</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">hai</p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning">Yes</p>
-                </div>
-
-                <div class="mySlides">
-                    <p class="kata">Hirigana</p>
-                    <p class="katakana">いいえ</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">iie</p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning">No</p>
-                </div>
-
-                <div class="mySlides">
-                    <p class="kata">Hirigana</p>
-                    <p class="katakana">オーケー</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">ok</p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning">Ok</p>
+                    <p class="meaning"><?php print_r($meaning[1])?></p>
                 </div>
 
                 <div class="mySlides">
                     <p class="kan">Kanji</p>
-                    <p class="kanji">助けて</p>
-                    <p class="kata">Hirigana</p>
-                    <p class="katakana">たすけて</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">tasukete</p>
+                    <p class="kanji3"><?php print_r($kanji[2])?></p> 
                     <p class="mean">Meaning</p>
-                    <p class="meaning">Help</p>
+                    <p class="meaning"><?php print_r($meaning[2])?></p>
                 </div>
 
                 <div class="mySlides">
-                    <p class="kata">Hirigana</p>
-                    <p class="katakana">ごめんなさい</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">gomennasai</p>
+                    <p class="kan">Kanji</p>
+                    <p class="kanji4"><?php print_r($kanji[3])?></p>
                     <p class="mean">Meaning</p>
-                    <p class="meaning">Sorry</p>
+                    <p class="meaning"><?php print_r($meaning[3])?></p>
                 </div>
 
                 <div class="mySlides">
-                    <p class="kata">Hirigana</p>
-                    <p class="katakana">すみません</p>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji">sumimasen</p>
+                    <p class="kan">Kanji</p>
+                    <p class="kanji5"><?php print_r($kanji[4])?></p> 
                     <p class="mean">Meaning</p>
-                    <p class="meaning">Excuse me</p>
+                    <p class="meaning"><?php print_r($meaning[4])?></p>
+                </div>
+
+                <div class="mySlides">
+                    <p class="kan">Kanji</p>
+                    <p class="kanji6"><?php print_r($kanji[5])?></p> 
+                    <p class="mean">Meaning</p>
+                    <p class="meaning"><?php print_r($meaning[5])?></p>
+                </div>
+
+                <div class="mySlides">
+                    <p class="kan">Kanji</p>
+                    <p class="kanji7"><?php print_r($kanji[6])?></p> 
+                    <p class="mean">Meaning</p>
+                    <p class="meaning"><?php print_r($meaning[6])?></p>
+                </div>
+
+                <div class="mySlides">
+                    <p class="kan">Kanji</p>
+                    <p class="kanji8"><?php print_r($kanji[7])?></p> 
+                    <p class="mean">Meaning</p>
+                    <p class="meaning"><?php print_r($meaning[7])?></p>
+                </div>
+
+                <div class="mySlides">
+                    <p class="kan">Kanji</p>
+                    <p class="kanji9"><?php print_r($kanji[8])?></p> 
+                    <p class="mean">Meaning</p>
+                    <p class="meaning"><?php print_r($meaning[8])?></p>
+                </div>
+
+                <div class="mySlides">
+                    <p class="kan">Kanji</p>
+                    <p class="kanji10"><?php print_r($kanji[9])?></p>
+                    <p class="mean">Meaning</p>
+                    <p class="meaning"><?php print_r($meaning[9])?></p>
                 </div>
 
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -156,17 +157,15 @@ if (returnUserLevel($conn) < 1) {
             <span class="dot" onclick="currentSlide(9)"></span>
             <span class="dot" onclick="currentSlide(10)"></span>
         </div>
-        
+
         <?php
-            if (returnUserLevel($conn) < 2) {
-        
-            ?><form action="../includes/levels.inc.php" method="post">
+            if (returnUserLevel($conn) <= $x) {
+            ?><form action="includes/levels.inc.php" method="post">
                 <button type="submit" name="submit">Complete level</button>
             </form>
         <?php
             }
         ?>
-
-        <script src="../JavaScript/slides-new-kanjis.js"></script>
+        <script src="JavaScript/slides-new-kanjis.js"></script>
     </center>
 </html>
