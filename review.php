@@ -49,13 +49,47 @@ else{
                     if (!in_array($id, $_SESSION['seenRight'])) {
                         array_push($_SESSION['seenRight'],$id);
                         if (count($_SESSION['seenRight']) == 10) {
-                            // Save number of wrong ones, calculate how many were seen wrong, from that percentage, generate a bar under the level with that percentage.
-                            // Lock the level.
-                            unset($_SESSION['level']);
-                            unset($_SESSION['id']);
-                            $_SESSION['seenRight'] = array();
-                            $_SESSION['seenWrong'] = array();
-                            header('Location:review_menu.php');
+                            ?> <script> 
+                                if (typeof(Storage) !== "undefined") {
+                                    //------if (localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") === null) {
+                                        <?php
+                                            if(count($_SESSION['seenWrong']) == 0) {
+                                                ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "50");<?php
+                                            }
+                                            if(count($_SESSION['seenWrong']) > 0 && count($_SESSION['seenWrong']) <= 2) {
+                                                ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "40");<?php
+
+                                            }
+                                            if(count($_SESSION['seenWrong']) > 2 && count($_SESSION['seenWrong']) <= 4) {
+                                                ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "30");<?php
+
+                                            }
+                                            if(count($_SESSION['seenWrong']) > 4 && count($_SESSION['seenWrong']) <= 6) {
+                                                ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "20");<?php
+
+                                            }
+                                            if(count($_SESSION['seenWrong']) > 6 && count($_SESSION['seenWrong']) <= 8) {
+                                                ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "10");<?php
+
+                                            }
+                                            if(count($_SESSION['seenWrong']) > 8 && count($_SESSION['seenWrong']) <= 10) {
+                                                ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "0");<?php
+                                            }
+                                            unset($_SESSION['level']);
+                                            unset($_SESSION['id']);
+                                            $_SESSION['seenRight'] = array();
+                                            $_SESSION['seenWrong'] = array();
+                                            // Lock the level.
+                                            ?> location.replace("review_menu.php"); <?php
+                                        ?>
+                                    //------}
+
+                                    // Check if there was already a localstorage for that level, make a percentage with the new added value, replace value.
+                                    // Lock the level.
+                                } else {
+                                    <?php //header('Location:review_menu.php'); ?>
+                                }
+                            </script> <?php
                         }
                     }
 
@@ -132,8 +166,8 @@ if ($results) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Register - Lumorah</title>
-        <link rel="icon" type="image/x-icon" href="Images/monkeylogo.png" />
+        <title>Review</title>
+        <link rel="icon" type="image/x-icon" href="" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <style><?php include 'CSS/newkanjis.css'?></style>

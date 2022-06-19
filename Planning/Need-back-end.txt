@@ -7,11 +7,14 @@
 -https://cloud.google.com/text-to-speech/  -  Google API for text2speech
 -Only level someone up after 24 hours - Do after website is fully complete
 -Make complete button to appear after last slide
+-Remove complete bar from new kanjis
 
 *Review page
 - https://cloud.google.com/text-to-speech/  -  Google API for text2speech
 - What to do when level is reviewed
 - Check for spelling and caps letters
+- BARRINHA NA PAGINA DE REVIEW, PROGREDINDO COM CADA ERRO/ACERTO
+- Parabens after completion of level
 
 *Progress page
 

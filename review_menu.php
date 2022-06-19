@@ -16,7 +16,7 @@ $userLevel = returnUserLevel($conn);
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Register - Lumorah</title>
+        <title>Review Menu</title>
         <link rel="icon" type="image/x-icon" href="Images/monkeylogo.png" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
@@ -52,13 +52,13 @@ $userLevel = returnUserLevel($conn);
             <div class="mySlides">
             <?php if ($userLevel >= 1){ ?> <button class="button button2" onclick="window.location.href='review.php?level=1'" ;>1 <?php if ($userLevel < 1){ ?>  <?php  }?> <br>  
                     <div class="progress">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+                        <div id="progress1" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
                     </div></button> <?php  }
                 ?>
 
                 <?php if ($userLevel >= 2){ ?> <button class="button button2" onclick="window.location.href='review.php?level=2'" ;>2 <?php if ($userLevel < 2){ ?>  <?php  }?> <br>  
                     <div class="progress">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+                        <div id="progress2" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
                     </div></button> <?php  }
                 ?>
 
@@ -3099,6 +3099,12 @@ $userLevel = returnUserLevel($conn);
                     }
                 }
         ?>
+
+        <script>
+            console.log(localStorage.getItem("progressLevel1"));
+            document.getElementById("progress1").style="width:" + localStorage.getItem("progressLevel1") + "%";
+            document.getElementById("progress2").style="width:" + localStorage.getItem("progressLevel2") + "%";
+        </script>
 
         <script src="JavaScript/newkanjis.js"></script>
     </center>
