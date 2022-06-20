@@ -12,7 +12,7 @@
 *Review page
 - https://cloud.google.com/text-to-speech/  -  Google API for text2speech
 - lock the level after review for period of time.
-- Check for spelling and caps letters
+- Check for spelling
 - BARRINHA NA PAGINA DE REVIEW, PROGREDINDO COM CADA ERRO/ACERTO
 - Parabens after completion of level
 

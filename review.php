@@ -41,11 +41,11 @@ else{
                 $meaning = $row['meaning'];
             }
             if(isset($meaning)){
-                $meaningCaps = strtoupper($meaning);
-                $meaningFirstLetterCaps =  ucfirst($meaning);
-                $meaningInput = $_POST['meaningInput'];
+                $meaningInp = $_POST['meaningInput'];
+                $meaningInpu = trim($meaningInp);
+                $meaningInput = strtolower($meaningInpu);
 
-                if ($meaningInput == $meaning || $meaningInput == $meaningCaps || $meaningInput == $meaningFirstLetterCaps) {
+                if ($meaningInput == $meaning) {
                     if (!in_array($id, $_SESSION['seenRight'])) {
                         array_push($_SESSION['seenRight'],$id);
                         if (count($_SESSION['seenRight']) == 10) {
@@ -332,8 +332,8 @@ else{
                     }
                 }
 
-                if ($meaningInput != $meaning && $meaningCaps && $meaningFirstLetterCaps) {
-                    echo '<div class="meaning">'."The correct answer was: ".$meaningFirstLetterCaps.'</div>';
+                if ($meaningInput != $meaning) {
+                    echo '<div class="meaning">'."The correct answer was: ".$meaning.'</div>';
                     if (!in_array($id, $_SESSION['seenWrong']) ) {
                         array_push($_SESSION['seenWrong'],$id);
                     }
