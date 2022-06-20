@@ -51,7 +51,232 @@ else{
                         if (count($_SESSION['seenRight']) == 10) {
                             ?> <script> 
                                 if (typeof(Storage) !== "undefined") {
-                                    //------if (localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") === null) {
+                                    if(localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") !== null) {
+                                        if(localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") == 100) {
+                                            location.replace("review_menu.php");
+                                        }
+                                        if(localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") == 90) {
+                                            <?php
+                                                if(count($_SESSION['seenWrong']) == 0) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "100"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 0 && count($_SESSION['seenWrong']) <= 2) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "100"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 2 && count($_SESSION['seenWrong']) <= 4) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "90"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 4 && count($_SESSION['seenWrong']) <= 6) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "90"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 6 && count($_SESSION['seenWrong']) <= 8) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "90"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 8 && count($_SESSION['seenWrong']) <= 10) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "90"); <?php
+                                                }
+                                            ?> location.replace("review_menu.php");
+                                        }
+                                        if(localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") == 80) {
+                                            <?php
+                                                if(count($_SESSION['seenWrong']) == 0) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "100"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 0 && count($_SESSION['seenWrong']) <= 2) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "90"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 2 && count($_SESSION['seenWrong']) <= 4) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "80"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 4 && count($_SESSION['seenWrong']) <= 6) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "80"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 6 && count($_SESSION['seenWrong']) <= 8) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "80"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 8 && count($_SESSION['seenWrong']) <= 10) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "80"); <?php
+                                                }
+                                            ?> location.replace("review_menu.php");
+                                        }
+                                        if(localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") == 70) {
+                                            <?php
+                                                if(count($_SESSION['seenWrong']) == 0) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "100"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 0 && count($_SESSION['seenWrong']) <= 2) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "90"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 2 && count($_SESSION['seenWrong']) <= 4) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "80"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 4 && count($_SESSION['seenWrong']) <= 6) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "70"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 6 && count($_SESSION['seenWrong']) <= 8) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "70"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 8 && count($_SESSION['seenWrong']) <= 10) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "70"); <?php
+                                                }
+                                            ?> location.replace("review_menu.php");
+                                        }
+                                        if(localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") == 60) {
+                                            <?php
+                                                if(count($_SESSION['seenWrong']) == 0) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "100"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 0 && count($_SESSION['seenWrong']) <= 2) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "100"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 2 && count($_SESSION['seenWrong']) <= 4) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "90"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 4 && count($_SESSION['seenWrong']) <= 6) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "80"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 6 && count($_SESSION['seenWrong']) <= 8) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "70"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 8 && count($_SESSION['seenWrong']) <= 10) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "60"); <?php
+                                                }
+                                            ?> location.replace("review_menu.php");
+                                        }
+                                        if(localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") == 50) {
+                                            <?php
+                                                if(count($_SESSION['seenWrong']) == 0) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "100"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 0 && count($_SESSION['seenWrong']) <= 2) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "90"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 2 && count($_SESSION['seenWrong']) <= 4) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "80"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 4 && count($_SESSION['seenWrong']) <= 6) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "70"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 6 && count($_SESSION['seenWrong']) <= 8) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "60"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 8 && count($_SESSION['seenWrong']) <= 10) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "50"); <?php
+                                                }
+                                            ?> location.replace("review_menu.php");
+                                        }
+                                        if(localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") == 40) {
+                                            <?php
+                                                if(count($_SESSION['seenWrong']) == 0) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "90"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 0 && count($_SESSION['seenWrong']) <= 2) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "80"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 2 && count($_SESSION['seenWrong']) <= 4) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "70"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 4 && count($_SESSION['seenWrong']) <= 6) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "60"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 6 && count($_SESSION['seenWrong']) <= 8) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "50"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 8 && count($_SESSION['seenWrong']) <= 10) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "40"); <?php
+                                                }
+                                            ?> location.replace("review_menu.php");
+                                        }
+                                        if(localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") == 30) {
+                                            <?php
+                                                if(count($_SESSION['seenWrong']) == 0) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "80"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 0 && count($_SESSION['seenWrong']) <= 2) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "70"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 2 && count($_SESSION['seenWrong']) <= 4) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "60"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 4 && count($_SESSION['seenWrong']) <= 6) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "50"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 6 && count($_SESSION['seenWrong']) <= 8) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "40"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 8 && count($_SESSION['seenWrong']) <= 10) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "30"); <?php
+                                                }
+                                            ?> location.replace("review_menu.php");
+                                        }
+                                        if(localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") == 20) {
+                                            <?php
+                                                if(count($_SESSION['seenWrong']) == 0) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "70"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 0 && count($_SESSION['seenWrong']) <= 2) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "60"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 2 && count($_SESSION['seenWrong']) <= 4) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "50"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 4 && count($_SESSION['seenWrong']) <= 6) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "40"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 6 && count($_SESSION['seenWrong']) <= 8) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "30"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 8 && count($_SESSION['seenWrong']) <= 10) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "20"); <?php
+                                                }
+                                            ?> location.replace("review_menu.php");
+                                        }
+                                        if(localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") == 10) {
+                                            <?php
+                                                if(count($_SESSION['seenWrong']) == 0) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "60"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 0 && count($_SESSION['seenWrong']) <= 2) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "50"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 2 && count($_SESSION['seenWrong']) <= 4) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "40"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 4 && count($_SESSION['seenWrong']) <= 6) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "30"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 6 && count($_SESSION['seenWrong']) <= 8) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "20"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 8 && count($_SESSION['seenWrong']) <= 10) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "10"); <?php
+                                                }
+                                            ?> location.replace("review_menu.php");
+                                        }
+                                        if(localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") == 0) {
+                                            <?php
+                                                if(count($_SESSION['seenWrong']) == 0) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "50"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 0 && count($_SESSION['seenWrong']) <= 2) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "40"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 2 && count($_SESSION['seenWrong']) <= 4) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "30"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 4 && count($_SESSION['seenWrong']) <= 6) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "20"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 6 && count($_SESSION['seenWrong']) <= 8) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "10"); <?php
+                                                }
+                                                if(count($_SESSION['seenWrong']) > 8 && count($_SESSION['seenWrong']) <= 10) {
+                                                    ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "0"); <?php
+                                                }
+                                            ?> location.replace("review_menu.php");
+                                        }
+                                    }
+                                    if (localStorage.getItem("progressLevel" + "<?php echo $_SESSION['level'] ?>") === null) {
                                         <?php
                                             if(count($_SESSION['seenWrong']) == 0) {
                                                 ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "50");<?php
@@ -75,19 +300,11 @@ else{
                                             if(count($_SESSION['seenWrong']) > 8 && count($_SESSION['seenWrong']) <= 10) {
                                                 ?> localStorage.setItem("progressLevel" + "<?php echo $_SESSION['level'] ?>", "0");<?php
                                             }
-                                            unset($_SESSION['level']);
-                                            unset($_SESSION['id']);
-                                            $_SESSION['seenRight'] = array();
-                                            $_SESSION['seenWrong'] = array();
-                                            // Lock the level.
                                             ?> location.replace("review_menu.php"); <?php
                                         ?>
-                                    //------}
-
-                                    // Check if there was already a localstorage for that level, make a percentage with the new added value, replace value.
-                                    // Lock the level.
+                                    }
                                 } else {
-                                    <?php //header('Location:review_menu.php'); ?>
+                                    location.replace("review_menu.php");
                                 }
                             </script> <?php
                         }
