@@ -124,7 +124,7 @@
                 ?>
             </form>
 
-            <form action="includes/deleteProfileProcess.php" method ="POST" enctype="multipart/form-data">
+            <form action="includes/deleteProfileProcess.php" method ="POST" enctype="multipart/form-data" onsubmit="return confirm('Are you sure you want to delete your account?');">
                 <input class="delete" type="submit" name="delete" value="Delete Account">
             </form>
 

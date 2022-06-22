@@ -1,41 +1,26 @@
--Make all SQL prepared statements
--Make everything responsive
 -Proficiency test when account is created
--Check if all headers lead to the right page
 
 *New Kanjis 
 -https://cloud.google.com/text-to-speech/  -  Google API for text2speech
--Only level someone up after 24 hours - Do after website is fully complete
--Make complete button to appear after last slide
--Remove complete bar from new kanjis
 
 *Review page
 - https://cloud.google.com/text-to-speech/  -  Google API for text2speech
-- lock the level after review for period of time.
 - Check for spelling
-- BARRINHA NA PAGINA DE REVIEW, PROGREDINDO COM CADA ERRO/ACERTO
-- Parabens after completion of level
 
 *Progress page
 
 *Terms of agreement
 
-*profile
-- Confirm deletion of account
 
 
 
 
-
-
-
-
-
-
-
-
-- After release - 
-
--Delete account button brings to a different page where the user is asked to 
-log in and confirm he wants to delete it.
--Why they deleted their account.
+*Last things
+- Lock
+- Progress bar
+- Congratulations after completion of level
+- Only level someone up after 24 hours
+- Make all SQL prepared statements
+- Check if code can be simplified/more secured
+- Check if all headers lead to the right page
+- Design / -Make everything responsive

@@ -26,6 +26,7 @@ if(!isset($_SESSION['id'])) {
   $_SESSION['id'] = $id;
   $_SESSION['seenRight'] = array();
   $_SESSION['seenWrong'] = array();
+  $_SESSION['progress'] = 0;
 }
 
 else{
@@ -311,6 +312,7 @@ else{
                     }
 
                     if (in_array($id, $_SESSION['seenRight'])) {
+                        $_SESSION['progress'] =  $_SESSION['progress'] + 10;
                         $sql="SELECT * FROM kanjis WHERE level = '".$_SESSION['level']."' ORDER BY rand()";
                         $results2 = mysqli_query($conn,$sql);
                         
@@ -418,7 +420,13 @@ if ($results) {
         <img src="https://dummyimage.com/600x300/343a40/6c757d" id="icon"> <br><br>
         
         <br><br><br><br>
-
+        <div class="progress-bar-box">
+            <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $_SESSION['progress'] ?>%"></div>
+            </div>
+        </div>
+        <br><br>
+                
         <div>
             <p><?php if(isset($kanji) && ($kanji!==null)) {
                         echo $kanji;
