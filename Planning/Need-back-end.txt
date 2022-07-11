@@ -1,26 +1,14 @@
--Proficiency test when account is created
-
-*New Kanjis 
--https://cloud.google.com/text-to-speech/  -  Google API for text2speech
-
-*Review page
-- https://cloud.google.com/text-to-speech/  -  Google API for text2speech
-- Check for spelling
-
-*Progress page
-
-*Terms of agreement
-
-
-
-
-
-*Last things
+- Congratulations after completion of level
+- Google API for text2speech on review page and new kanjis page
+- Review page - accept misspelling 
+- Proficiency test when account is created
 - Lock
 - Progress bar
-- Congratulations after completion of level
-- Only level someone up after 24 hours
-- Make all SQL prepared statements
-- Check if code can be simplified/more secured
 - Check if all headers lead to the right page
+- Check if code can be simplified/more secured
+- Only level someone up after 24 hours
 - Design / -Make everything responsive
+- Progress page
+- Terms of agreement
+- Make all SQL prepared statements
+

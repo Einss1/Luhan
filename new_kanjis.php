@@ -19,10 +19,15 @@ else {
     
     $kanji = array();
     $meaning = array();
+    $hiragana = array();
+    $romanji = array();
+
     if ($results) {
         while ($row=mysqli_fetch_array($results)) {
             $kanji[] = $row['kanji'];
             $meaning[] = $row['meaning'];
+            $hiragana[] = $row['hiragana'];
+            $romanji[] = $row['romanji'];
         }
     }
 }
@@ -34,7 +39,7 @@ else {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 1</title>
+    <title>Level</title>
     <link href="css/styles.css" rel="stylesheet" />
     <style><?php include 'CSS/levels.css'; ?></style>
 </head>
@@ -67,75 +72,211 @@ else {
         <div class="newkanjis">
             <div class="slideshow-container">
                 <div class="mySlides">
-                    <p class="kan">Kanji</p> 
-                    <p class="kanji1"><?php print_r($kanji[0])?></p> 
-                    <!--<p class="kata">Katakana</p>
-                    <p class="katakana">いち</p>
+                    <?php 
+                        if (empty($kanji[0])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Kanji</p><?php
+                            print_r($kanji[0]);
+                        }
+                        if (empty($hiragana[0])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Katakana</p><?php
+                            print_r($hiragana[0]);
+                        }
+                    ?>
                     <p class="roman">Romanji</p>
-                    <p class="romanji">ichi</p>-->
+                    <p class="romanji"><?php print_r($romanji[0])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[0])?></p>
                 </div>
 
                 <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji2"><?php print_r($kanji[1])?></p> 
+                    <?php 
+                        if (empty($kanji[1])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Kanji</p><?php
+                            print_r($kanji[1]);
+                        }
+                        if (empty($hiragana[1])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Katakana</p><?php
+                            print_r($hiragana[1]);
+                        }
+                    ?>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji"><?php print_r($romanji[1])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[1])?></p>
                 </div>
 
                 <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji3"><?php print_r($kanji[2])?></p> 
+                    <?php 
+                        if (empty($kanji[2])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Kanji</p><?php
+                            print_r($kanji[2]);
+                        }
+                        if (empty($hiragana[2])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Katakana</p><?php
+                            print_r($hiragana[2]);
+                        }
+                    ?>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji"><?php print_r($romanji[2])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[2])?></p>
                 </div>
 
                 <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji4"><?php print_r($kanji[3])?></p>
+                    <?php 
+                        if (empty($kanji[3])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Kanji</p><?php
+                            print_r($kanji[3]);
+                        }
+                        if (empty($hiragana[3])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Katakana</p><?php
+                            print_r($hiragana[3]);
+                        }
+                    ?>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji"><?php print_r($romanji[3])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[3])?></p>
                 </div>
 
                 <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji5"><?php print_r($kanji[4])?></p> 
+                    <?php 
+                        if (empty($kanji[4])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Kanji</p><?php
+                            print_r($kanji[4]);
+                        }
+                        if (empty($hiragana[4])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Katakana</p><?php
+                            print_r($hiragana[4]);
+                        }
+                    ?>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji"><?php print_r($romanji[4])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[4])?></p>
                 </div>
 
                 <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji6"><?php print_r($kanji[5])?></p> 
+                    <?php 
+                        if (empty($kanji[5])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Kanji</p><?php
+                            print_r($kanji[5]);
+                        }
+                        if (empty($hiragana[5])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Katakana</p><?php
+                            print_r($hiragana[5]);
+                        }
+                    ?>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji"><?php print_r($romanji[5])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[5])?></p>
                 </div>
 
                 <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji7"><?php print_r($kanji[6])?></p> 
+                    <?php 
+                        if (empty($kanji[6])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Kanji</p><?php
+                            print_r($kanji[6]);
+                        }
+                        if (empty($hiragana[6])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Katakana</p><?php
+                            print_r($hiragana[6]);
+                        }
+                    ?>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji"><?php print_r($romanji[6])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[6])?></p>
                 </div>
 
                 <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji8"><?php print_r($kanji[7])?></p> 
+                    <?php 
+                        if (empty($kanji[7])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Kanji</p><?php
+                            print_r($kanji[7]);
+                        }
+                        if (empty($hiragana[7])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Katakana</p><?php
+                            print_r($hiragana[7]);
+                        }
+                    ?>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji"><?php print_r($romanji[7])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[7])?></p>
                 </div>
 
                 <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji9"><?php print_r($kanji[8])?></p> 
+                    <?php 
+                        if (empty($kanji[8])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Kanji</p><?php
+                            print_r($kanji[8]);
+                        }
+                        if (empty($hiragana[8])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Katakana</p><?php
+                            print_r($hiragana[8]);
+                        }
+                    ?>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji"><?php print_r($romanji[8])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[8])?></p>
                 </div>
 
                 <div class="mySlides">
-                    <p class="kan">Kanji</p>
-                    <p class="kanji10"><?php print_r($kanji[9])?></p>
+                    <?php 
+                        if (empty($kanji[9])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Kanji</p><?php
+                            print_r($kanji[9]);
+                        }
+                        if (empty($hiragana[9])) {
+                            echo "";
+                        } else {
+                            ?><p class="kata">Katakana</p><?php
+                            print_r($hiragana[9]);
+                        }
+                    ?>
+                    <p class="roman">Romanji</p>
+                    <p class="romanji"><?php print_r($romanji[9])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[9])?></p>
                 </div>
