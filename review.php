@@ -40,6 +40,8 @@ else{
                 $id = $row['id'];
                 $kanji = $row['kanji'];
                 $meaning = $row['meaning'];
+                $romanji = $row['romanji'];
+                $hiragana = $row['hiragana'];
             }
             if(isset($meaning)){
                 $meaningInp = $_POST['meaningInput'];
@@ -374,7 +376,13 @@ if ($results) {
         $id = $row['id'];
         $kanji = $row['kanji'];
         $meaning = $row['meaning'];
+        $romanji = $row['romanji'];
+        $hiragana = $row['hiragana'];
     }
+
+    $file = "audio/" . $romanji . ".mp3";
+
+
 }
 ?>
 
@@ -428,16 +436,36 @@ if ($results) {
         <br><br>
                 
         <div>
-            <p><?php if(isset($kanji) && ($kanji!==null)) {
+            <p><?php 
+                    if(isset($kanji) && ($kanji!==null)) {
                         echo $kanji;
-                        ?><form name="exam" method="post" action="review.php?level=" autocomplete="off">
+                        ?><br><br>
+
+                        <audio controls>
+                            <source src="<?php echo $file ?>" type="audio/mpeg" />
+                        </audio><br>
+                        <form name="exam" method="post" action="review.php?level=" autocomplete="off">
                             <input type=text name="meaningInput" required> <br> <br>
 
                             <input type="submit" name="next" value="Next">
                         </form> <?php
-                    } else {
+                    } 
+                    if(isset($hiragana) && ($hiragana!==null) && ($kanji==null)){
+                        echo $hiragana;
+                        ?><br><br>
+                        <audio controls>
+                            <source src="<?php echo $file ?>" type="audio/mpeg" />
+                        </audio><br>
+                        <form name="exam" method="post" action="review.php?level=" autocomplete="off">
+                            <input type=text name="meaningInput" required> <br> <br>
+
+                            <input type="submit" name="next" value="Next">
+                        </form> <?php
+                    } 
+                    if($kanji==null && $hiragana==null) {
                         echo "No more kanjis for now!";
-                    }     ?></p>
+                    }   
+                ?></p>
         </div>
     </center>
 </html>

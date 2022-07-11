@@ -1,14 +1,15 @@
+- Review page - accept misspelling
 - Congratulations after completion of level
-- Google API for text2speech on review page
-- Review page - accept misspelling 
 - Proficiency test when account is created
 - Lock
 - Progress bar
-- Check if all headers lead to the right page
-- Check if code can be simplified/more secured
 - Only level someone up after 24 hours
-- Design / -Make everything responsive
+
 - Progress page
 - Terms of agreement
+
 - Make all SQL prepared statements
+- Design / -Make everything responsive
+- Check if all headers lead to the right page
+- Check if code can be simplified/more secured
 
