@@ -90,6 +90,18 @@ else {
                     <p class="romanji"><?php print_r($romanji[0])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[0])?></p>
+                    <?php
+                        $file = "audio/" . $romanji[0] . ".mp3";
+
+                        if (!file_exists($file)) {
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[0].'&tl=ja');
+                            file_put_contents($file, $mp3);
+                        }
+                    ?>
+                    <br>
+                    <audio controls>
+                        <source src="<?php echo $file ?>" type="audio/mpeg" />
+                    </audio>
                 </div>
 
                 <div class="mySlides">
@@ -111,6 +123,18 @@ else {
                     <p class="romanji"><?php print_r($romanji[1])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[1])?></p>
+                    <?php
+                        $file = "audio/" . $romanji[1] . ".mp3";
+
+                        if (!file_exists($file)) {
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[1].'&tl=ja');
+                            file_put_contents($file, $mp3);
+                        }
+                    ?>
+                    <br>
+                    <audio controls>
+                        <source src="<?php echo $file ?>" type="audio/mpeg" />
+                    </audio>
                 </div>
 
                 <div class="mySlides">
@@ -132,6 +156,18 @@ else {
                     <p class="romanji"><?php print_r($romanji[2])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[2])?></p>
+                    <?php
+                        $file = "audio/" . $romanji[2] . ".mp3";
+
+                        if (!file_exists($file)) {
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[2].'&tl=ja');
+                            file_put_contents($file, $mp3);
+                        }
+                    ?>
+                    <br>
+                    <audio controls>
+                        <source src="<?php echo $file ?>" type="audio/mpeg" />
+                    </audio>
                 </div>
 
                 <div class="mySlides">
@@ -153,6 +189,18 @@ else {
                     <p class="romanji"><?php print_r($romanji[3])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[3])?></p>
+                    <?php
+                        $file = "audio/" . $romanji[3] . ".mp3";
+
+                        if (!file_exists($file)) {
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[3].'&tl=ja');
+                            file_put_contents($file, $mp3);
+                        }
+                    ?>
+                    <br>
+                    <audio controls>
+                        <source src="<?php echo $file ?>" type="audio/mpeg" />
+                    </audio>
                 </div>
 
                 <div class="mySlides">
@@ -174,6 +222,18 @@ else {
                     <p class="romanji"><?php print_r($romanji[4])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[4])?></p>
+                    <?php
+                        $file = "audio/" . $romanji[4] . ".mp3";
+
+                        if (!file_exists($file)) {
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[4].'&tl=ja');
+                            file_put_contents($file, $mp3);
+                        }
+                    ?>
+                    <br>
+                    <audio controls>
+                        <source src="<?php echo $file ?>" type="audio/mpeg" />
+                    </audio>
                 </div>
 
                 <div class="mySlides">
@@ -195,6 +255,18 @@ else {
                     <p class="romanji"><?php print_r($romanji[5])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[5])?></p>
+                    <?php
+                        $file = "audio/" . $romanji[5] . ".mp3";
+
+                        if (!file_exists($file)) {
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[5].'&tl=ja');
+                            file_put_contents($file, $mp3);
+                        }
+                    ?>
+                    <br>
+                    <audio controls>
+                        <source src="<?php echo $file ?>" type="audio/mpeg" />
+                    </audio>
                 </div>
 
                 <div class="mySlides">
@@ -216,6 +288,18 @@ else {
                     <p class="romanji"><?php print_r($romanji[6])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[6])?></p>
+                    <?php
+                        $file = "audio/" . $romanji[6] . ".mp3";
+
+                        if (!file_exists($file)) {
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[6].'&tl=ja');
+                            file_put_contents($file, $mp3);
+                        }
+                    ?>
+                    <br>
+                    <audio controls>
+                        <source src="<?php echo $file ?>" type="audio/mpeg" />
+                    </audio>
                 </div>
 
                 <div class="mySlides">
@@ -237,6 +321,18 @@ else {
                     <p class="romanji"><?php print_r($romanji[7])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[7])?></p>
+                    <?php
+                        $file = "audio/" . $romanji[7] . ".mp3";
+
+                        if (!file_exists($file)) {
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[7].'&tl=ja');
+                            file_put_contents($file, $mp3);
+                        }
+                    ?>
+                    <br>
+                    <audio controls>
+                        <source src="<?php echo $file ?>" type="audio/mpeg" />
+                    </audio>
                 </div>
 
                 <div class="mySlides">
@@ -258,6 +354,18 @@ else {
                     <p class="romanji"><?php print_r($romanji[8])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[8])?></p>
+                    <?php
+                        $file = "audio/" . $romanji[8] . ".mp3";
+
+                        if (!file_exists($file)) {
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[8].'&tl=ja');
+                            file_put_contents($file, $mp3);
+                        }
+                    ?>
+                    <br>
+                    <audio controls>
+                        <source src="<?php echo $file ?>" type="audio/mpeg" />
+                    </audio>
                 </div>
 
                 <div class="mySlides">
@@ -279,6 +387,18 @@ else {
                     <p class="romanji"><?php print_r($romanji[9])?></p>
                     <p class="mean">Meaning</p>
                     <p class="meaning"><?php print_r($meaning[9])?></p>
+                    <?php
+                        $file = "audio/" . $romanji[9] . ".mp3";
+
+                        if (!file_exists($file)) {
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[9].'&tl=ja');
+                            file_put_contents($file, $mp3);
+                        }
+                    ?>
+                    <br>
+                    <audio controls>
+                        <source src="<?php echo $file ?>" type="audio/mpeg" />
+                    </audio>
                 </div>
 
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

@@ -1,5 +1,5 @@
 - Congratulations after completion of level
-- Google API for text2speech on review page and new kanjis page
+- Google API for text2speech on review page
 - Review page - accept misspelling 
 - Proficiency test when account is created
 - Lock
