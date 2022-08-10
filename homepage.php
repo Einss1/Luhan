@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['progress_proficiency'] = 0;
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +40,8 @@ session_start();
                 </div>
             </nav>
     <center>
+        <button class="button button1" onclick="window.location.href='proficiency_test.php'" ;>Proficiency Test</button>
+
         <br><br><br><br><br><br><br><br><br>
         <button class="button button1" onclick="window.location.href='new_kanjis_menu.php'" ;>New Kanjis </button>
         <br><br>

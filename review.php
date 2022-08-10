@@ -49,7 +49,7 @@ else{
                 $meaningInput = strtolower($meaningInpu);
                 similar_text($meaningInput, $meaning, $percent);
 
-                if ($percent > 50) {
+                if ($meaningInput != $meaning && $percent > 50) {
                     echo '<div class="meaning">'."Oops! A misspell error! Your answer was $meaningInput and the correct answer was: ".$meaning.'</div>';
 
                     if (!in_array($id, $_SESSION['seenRight'])) {
