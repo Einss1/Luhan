@@ -1,9 +1,5 @@
-- Review page - accept misspelling
-- Congratulations after completion of level
-- Proficiency test when account is created
-- Lock
-- Progress bar
-- Only level someone up after 24 hours
+- Proficiency test
+- Only level someone up after 24 hours - ADS
 
 - Progress page
 - Terms of agreement
@@ -13,3 +9,4 @@
 - Check if all headers lead to the right page
 - Check if code can be simplified/more secured
 
+- Games
