@@ -58,6 +58,7 @@ else {
             if(isset($_SESSION["useruid"])) {
                 echo '<li class="nav-item"><a class="nav-link" href="homepage.php">Homepage</a></li>';
                 echo '<li class="nav-item"><a class="nav-link" href="new_kanjis.php"> New Kanjis</a></li>';
+                echo '<li class="nav-item"><a class="nav-link"href="includes/logout.inc.php"> Log out </a></li>';
             }else {
                 header("location: ../luhan/login.php");
             }

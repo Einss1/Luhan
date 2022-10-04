@@ -3,14 +3,6 @@ require_once 'includes/dbh.inc.php';
 require_once 'includes/functions.inc.php';
 session_start();
 
-if (empty($_GET)) {
-    header('Location:review_menu.php');
-}
-
-if ($_GET['level'] > returnUserLevel($conn)) {
-    header('Location:review_menu.php');
-}
-
 if(!isset($_SESSION['id'])) {
     $x = $_GET['level'];
     $sql="SELECT * FROM kanjis WHERE level = '$x' ORDER BY rand()";

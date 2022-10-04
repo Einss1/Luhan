@@ -38,7 +38,7 @@ if(isset($_POST['update'])) {
         } else{
         $sql = "UPDATE users SET usersPwd = '$hashedPwd' WHERE usersUid = '$currentUser'";
         $results = mysqli_query($conn,$sql);
-        header('Location:../login.php?success=profileUpdated');
+        header('Location:../login/index.php?success=profileUpdated');
         exit;
         }
     }
@@ -46,25 +46,25 @@ if(isset($_POST['update'])) {
     else if (empty($userNewName) && empty($userNewPassword)){
         $sql = "UPDATE users SET usersEmail = '$userNewEmail' WHERE usersUid = '$currentUser'";
         $results = mysqli_query($conn,$sql);
-        header('Location:../login.php?success=profileUpdated');
+        header('Location:../login/index.php?success=profileUpdated');
         exit;
     }
 
     else if (empty($userNewEmail) && empty($userNewPassword)){
         $sql = "UPDATE users SET usersUid = '$userNewName' WHERE usersUid = '$currentUser'";
         $results = mysqli_query($conn,$sql);
-        header('Location:../login.php?success=profileUpdated');
+        header('Location:../login/index.php?success=profileUpdated');
         exit;
     }
 
     else if (empty($userNewName)){
         if (validatepwd($userNewPassword) !== false) {
-            header("location: ../profile.php?error=weakpassword");
+            header("location:../profile.php?error=weakpassword");
             exit();
         } else {
         $sql = "UPDATE users SET usersEmail = '$userNewEmail', usersPwd = '$hashedPwd' WHERE usersUid = '$currentUser'";
         $results = mysqli_query($conn,$sql);
-        header('Location:../login.php?success=profileUpdated');
+        header('Location:../login/index.php?success=profileUpdated');
         exit;
         }
     }
@@ -76,7 +76,7 @@ if(isset($_POST['update'])) {
         } else {
             $sql = "UPDATE users SET usersUid = '$userNewName', usersPwd = '$hashedPwd' WHERE usersUid = '$currentUser'";
             $results = mysqli_query($conn,$sql);
-            header('Location:../login.php?success=profileUpdated');
+            header('Location:../login/index.php?success=profileUpdated');
             exit;
         }
     }
@@ -84,7 +84,7 @@ if(isset($_POST['update'])) {
     else if (empty($userNewPassword)){
         $sql = "UPDATE users SET usersUid = '$userNewName', usersEmail = '$userNewEmail' WHERE usersUid = '$currentUser'";
         $results = mysqli_query($conn,$sql);
-        header('Location:../login.php?success=profileUpdated');
+        header('Location:../login/index.php?success=profileUpdated');
         exit;
     }
 
@@ -95,7 +95,7 @@ if(isset($_POST['update'])) {
         }else {
             $sql = "UPDATE users SET usersUid = '$userNewName', usersEmail = '$userNewEmail', usersPwd = '$hashedPwd' WHERE usersUid = '$currentUser'";
             $results = mysqli_query($conn,$sql);
-            header('Location:../login.php?success=profileUpdated');
+            header('Location:../login/index.php?success=profileUpdated');
             exit;
         }
     }

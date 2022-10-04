@@ -27,7 +27,6 @@ $_SESSION['progress_proficiency'] = 0;
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <?php 
                 if(isset($_SESSION["useruid"])) {
-                    echo '<li class="nav-item"><a class="nav-link" href="progress.html">Progress </a></li>';
                     echo '<li class="nav-item"><a class="nav-link" href="profile.php">Profile </a></li>';
                     echo '<li class="nav-item"><a class="nav-link" href="includes/logout.inc.php"> Log out </a></li>';
                 }
@@ -40,14 +39,11 @@ $_SESSION['progress_proficiency'] = 0;
                 </div>
             </nav>
     <center>
-        <button class="button button1" onclick="window.location.href='proficiency_test.php'" ;>Proficiency Test</button>
 
-        <br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br>        <br><br><br><br><br><br>
         <button class="button button1" onclick="window.location.href='new_kanjis_menu.php'" ;>New Kanjis </button>
-        <br><br>
+        <br><br><br><br><br><br>
         <button class="button button2" onclick="window.location.href='review_menu.php'" ;>Review</button>
-        <br><br>
-        <button class="button button3" ><img src="https://dummyimage.com/500x150/343a40/6c757d" class="img-fluid"></button>
 
 
 

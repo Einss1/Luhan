@@ -35,12 +35,12 @@ session_start();
         <div class="icon">
             <img src="https://dummyimage.com/500x250/343a40/6c757d" id="icon"> <br><br>
         </div>
-
+        <br><br>
         <section class="signup-form">
             <div>
                 <form action="../includes/signup.inc.php" method="post" autocomplete="off">
-                    <label for="name">Full name</label><br>
-                    <input name="name" type="text" style="text-align:center" placeholder="Full name" ><br><br>
+                    <label for="name">Name</label><br>
+                    <input name="name" type="text" style="text-align:center" placeholder="Name" ><br><br>
 
                     <label for="email" >Email</label><br>
                     <input name="email" type="text" style="text-align:center" placeholder="Email" ><br><br>

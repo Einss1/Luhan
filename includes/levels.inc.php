@@ -8,9 +8,6 @@ if (isset($_POST["submit"])) {
     $currentUser = $_SESSION['useruid'];
     $currentDate = date("Y-m-d h:i:sa");
 
-    $sql = "UPDATE users SET timeLastLevel = '$currentDate' WHERE usersUid = '$currentUser'";
-    $result = mysqli_query($conn,$sql);
-
     $sql = "SELECT usersLevel FROM users WHERE usersUid = '$currentUser'";
     $result = mysqli_query($conn,$sql);
 
