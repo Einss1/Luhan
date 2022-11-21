@@ -41,9 +41,9 @@ $_SESSION['progress_proficiency'] = 0;
     <center>
 
         <br><br><br><br><br><br>        <br><br><br><br><br><br>
-        <button class="button button1" onclick="window.location.href='new_kanjis_menu.php'" ;>New Kanjis </button>
+        <button class="button button1" onclick="window.location.href='new_words_menu.php'" ;>Novas Palavras</button>
         <br><br><br><br><br><br>
-        <button class="button button2" onclick="window.location.href='review_menu.php'" ;>Review</button>
+        <button class="button button2" onclick="window.location.href='review_menu.php'" ;>Revisão</button>
 
 
 

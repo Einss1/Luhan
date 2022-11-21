@@ -5,8 +5,11 @@ session_start();
 
 if(!isset($_SESSION['id'])) {
     $x = $_GET['level'];
-    $sql="SELECT * FROM kanjis WHERE level = '$x' ORDER BY rand()";
-    $results = mysqli_query($conn,$sql);
+    $sql="SELECT * FROM words WHERE level = ? ORDER BY rand()";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $x);
+    $stmt->execute();
+    $results = $stmt->get_result();
     
     if ($results) {
         while ($row=mysqli_fetch_array($results)) {
@@ -24,25 +27,27 @@ if(!isset($_SESSION['id'])) {
 else{
     if(isset($_POST['next'])){
         $userLevel = returnUserLevel($conn);
-        $sql="SELECT * FROM kanjis WHERE level = '".$_SESSION['level']."' and id = '".$_SESSION['id']."'";
-        $results = mysqli_query($conn,$sql);
+        $sql="SELECT * FROM words WHERE level = ? and id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ii", $_SESSION['level'], $_SESSION['id']);
+        $stmt->execute();
+        $results = $stmt->get_result();
     
         if ($results) {
             while ($row=mysqli_fetch_array($results)) {
                 $id = $row['id'];
-                $kanji = $row['kanji'];
-                $meaning = $row['meaning'];
-                $romanji = $row['romanji'];
-                $hiragana = $row['hiragana'];
+                $word = $row['word'];
+                $significado = $row['significado'];
             }
-            if(isset($meaning)){
+
+            if(isset($significado)){
                 $meaningInp = $_POST['meaningInput'];
                 $meaningInpu = trim($meaningInp);
                 $meaningInput = strtolower($meaningInpu);
-                similar_text($meaningInput, $meaning, $percent);
+                similar_text($meaningInput, $significado, $percent);
 
-                if ($meaningInput != $meaning && $percent > 50) {
-                    echo '<div class="meaning">'."Oops! A misspell error! Your answer was $meaningInput and the correct answer was: ".$meaning.'</div>';
+                if ($meaningInput != $significado && $percent > 50) {
+                    echo '<div class="significado">'."Oops! A misspell error! Your answer was $meaningInput and the correct answer was: ".$significado.'</div>';
 
                     if (!in_array($id, $_SESSION['seenRight'])) {
                         array_push($_SESSION['seenRight'],$id);
@@ -310,20 +315,27 @@ else{
 
                     if (in_array($id, $_SESSION['seenRight'])) {
                         $_SESSION['progress'] =  $_SESSION['progress'] + 10;
-                        $sql="SELECT * FROM kanjis WHERE level = '".$_SESSION['level']."' ORDER BY rand()";
-                        $results2 = mysqli_query($conn,$sql);
+                        $sql="SELECT * FROM words WHERE level = ? ORDER BY rand()";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->bind_param("i", $_SESSION['level']);
+                        $stmt->execute();
+                        $results = $stmt->get_result();
                         
-                        if ($results2) {
-                            while ($row=mysqli_fetch_array($results2)) {
+                        if ($results) {
+                            while ($row=mysqli_fetch_array($results)) {
                                 $id = $row['id'];
                             }
                         }
                         
                         while (in_array($id, $_SESSION['seenRight']) && (count($_SESSION['seenRight']) != 10)) {
-                            $results2 = mysqli_query($conn,$sql);
+                            $sql="SELECT * FROM words WHERE level = ? ORDER BY rand()";
+                            $stmt = $conn->prepare($sql);
+                            $stmt->bind_param("i", $_SESSION['level']);
+                            $stmt->execute();
+                            $results = $stmt->get_result();
                         
-                            if ($results2) {
-                                while ($row=mysqli_fetch_array($results2)) {
+                            if ($results) {
+                                while ($row=mysqli_fetch_array($results)) {
                                     $id = $row['id'];
                                 }
                             }
@@ -331,7 +343,7 @@ else{
                     }
                 }
 
-                if ($meaningInput == $meaning) {
+                if ($meaningInput == $significado) {
                     if (!in_array($id, $_SESSION['seenRight'])) {
                         array_push($_SESSION['seenRight'],$id);
                         if (count($_SESSION['seenRight']) == 10) {
@@ -598,20 +610,27 @@ else{
 
                     if (in_array($id, $_SESSION['seenRight'])) {
                         $_SESSION['progress'] =  $_SESSION['progress'] + 10;
-                        $sql="SELECT * FROM kanjis WHERE level = '".$_SESSION['level']."' ORDER BY rand()";
-                        $results2 = mysqli_query($conn,$sql);
+                        $sql="SELECT * FROM words WHERE level = ? ORDER BY rand()";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->bind_param("i", $_SESSION['level']);
+                        $stmt->execute();
+                        $results = $stmt->get_result();
                         
-                        if ($results2) {
-                            while ($row=mysqli_fetch_array($results2)) {
+                        if ($results) {
+                            while ($row=mysqli_fetch_array($results)) {
                                 $id = $row['id'];
                             }
                         }
                         
                         while (in_array($id, $_SESSION['seenRight']) && (count($_SESSION['seenRight']) != 10)) {
-                            $results2 = mysqli_query($conn,$sql);
+                            $sql="SELECT * FROM words WHERE level = ? ORDER BY rand()";
+                            $stmt = $conn->prepare($sql);
+                            $stmt->bind_param("i", $_SESSION['level']);
+                            $stmt->execute();
+                            $results = $stmt->get_result();
                         
-                            if ($results2) {
-                                while ($row=mysqli_fetch_array($results2)) {
+                            if ($results) {
+                                while ($row=mysqli_fetch_array($results)) {
                                     $id = $row['id'];
                                 }
                             }
@@ -619,26 +638,33 @@ else{
                     }
                 }
 
-                if ($meaningInput != $meaning && $percent < 50) {
-                    echo '<div class="meaning">'."The correct answer was: ".$meaning.'</div>';
+                if ($meaningInput != $significado && $percent < 50) {
+                    echo '<div class="significado">'."The correct answer was: ".$significado.'</div>';
                     if (!in_array($id, $_SESSION['seenWrong']) ) {
                         array_push($_SESSION['seenWrong'],$id);
                     }
 
                     if (in_array($id, $_SESSION['seenWrong'])) {
-                        $sql="SELECT * FROM kanjis WHERE level = '".$_SESSION['level']."' ORDER BY rand()";
-                        $results2 = mysqli_query($conn,$sql);
+                        $sql="SELECT * FROM words WHERE level = ? ORDER BY rand()";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->bind_param("i", $_SESSION['level']);
+                        $stmt->execute();
+                        $results = $stmt->get_result();
 
-                        if ($results2) {
-                            while ($row=mysqli_fetch_array($results2)) {
+                        if ($results) {
+                            while ($row=mysqli_fetch_array($results)) {
                                 $id = $row['id'];
                             }
                         }
-                       while (in_array($id, $_SESSION['seenRight']) && (count($_SESSION['seenRight']) != 10)) {
-                            $results2 = mysqli_query($conn,$sql);
+                        while (in_array($id, $_SESSION['seenRight']) && (count($_SESSION['seenRight']) != 10)) {
+                            $sql="SELECT * FROM words WHERE level = ? ORDER BY rand()";
+                            $stmt = $conn->prepare($sql);
+                            $stmt->bind_param("i", $_SESSION['level']);
+                            $stmt->execute();
+                            $results = $stmt->get_result();
                         
-                            if ($results2) {
-                                while ($row=mysqli_fetch_array($results2)) {
+                            if ($results) {
+                                while ($row=mysqli_fetch_array($results)) {
                                     $id = $row['id'];
                                 }
                             }
@@ -651,19 +677,20 @@ else{
     }
 
 $userLevel = returnUserLevel($conn);
-$sql="SELECT * FROM kanjis WHERE level <= '$userLevel' and id = '".$_SESSION['id']."'";
-$results = mysqli_query($conn,$sql);
+$sql="SELECT * FROM words WHERE level <= ? and id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ii", $userLevel, $_SESSION['id']);
+$stmt->execute();
+$results = $stmt->get_result();
 
 if ($results) {
     while ($row=mysqli_fetch_array($results)) {
         $id = $row['id'];
-        $kanji = $row['kanji'];
-        $meaning = $row['meaning'];
-        $romanji = $row['romanji'];
-        $hiragana = $row['hiragana'];
+        $word = $row['word'];
+        $significado = $row['significado'];
     }
 
-    $file = "audio/" . $romanji . ".mp3";
+    $file = "audio/" . $word . ".mp3";
 
 
 }
@@ -676,7 +703,7 @@ if ($results) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Review</title>
+        <title>Revisão</title>
         <link rel="icon" type="image/x-icon" href="" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
@@ -720,8 +747,8 @@ if ($results) {
                 
         <div>
             <p><?php 
-                    if(isset($kanji) && ($kanji!==null)) {
-                        echo $kanji;
+                    if(isset($word) && ($word!==null)) {
+                        echo $word;
                         ?><br><br>
 
                         <audio controls>
@@ -733,20 +760,8 @@ if ($results) {
                             <input type="submit" name="next" value="Next">
                         </form> <?php
                     } 
-                    if(isset($hiragana) && ($hiragana!==null) && ($kanji==null)){
-                        echo $hiragana;
-                        ?><br><br>
-                        <audio controls>
-                            <source src="<?php echo $file ?>" type="audio/mpeg" />
-                        </audio><br>
-                        <form name="exam" method="post" action="review.php?level=" autocomplete="off">
-                            <input type=text name="meaningInput" required> <br> <br>
-
-                            <input type="submit" name="next" value="Next">
-                        </form> <?php
-                    } 
-                    if($kanji==null && $hiragana==null) {
-                        echo "No more kanjis for now!";
+                    if(!isset($word) && !isset($significado)) {
+                        echo "No more words for now!";
                     }   
                 ?></p>
         </div>

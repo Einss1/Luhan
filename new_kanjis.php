@@ -1,33 +1,37 @@
 <?php
+//Import database connection and functions.
 require_once 'includes/dbh.inc.php';
 require_once 'includes/functions.inc.php';
+
+//Initialize session.
 session_start();
 
+//If empty GET from url, redirect.
 if (empty($_GET)) {
-    header('Location:new_kanjis_menu.php');
+    header('Location:new_words_menu.php');
 }
 
+//If GET is higher than user's level, redirect.
 if ($_GET['level'] > returnUserLevel($conn)) {
-    header('Location:new_kanjis_menu.php');
+    header('Location:new_words_menu.php');
 }
+
 
 else {
-    $x = $_GET['level'];
-    $userLevel = returnUserLevel($conn);
-    $sql="SELECT * FROM kanjis WHERE level = '".$x."'";
-    $results = mysqli_query($conn,$sql);
+    $level = $_GET['level'];
+    $sql="SELECT * FROM words WHERE level = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $level);
+    $stmt->execute();
+    $results = $stmt->get_result();
     
-    $kanji = array();
-    $meaning = array();
-    $hiragana = array();
-    $romanji = array();
+    $word = array();
+    $significado = array();
 
     if ($results) {
         while ($row=mysqli_fetch_array($results)) {
-            $kanji[] = $row['kanji'];
-            $meaning[] = $row['meaning'];
-            $hiragana[] = $row['hiragana'];
-            $romanji[] = $row['romanji'];
+            $word[] = $row['word'];
+            $significado[] = $row['significado'];
         }
     }
 }
@@ -39,7 +43,7 @@ else {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level</title>
+    <title>Nível <?php echo $level?></title>
     <link href="css/styles.css" rel="stylesheet" />
     <style><?php include 'CSS/levels.css'; ?></style>
 </head>
@@ -56,9 +60,9 @@ else {
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <?php 
             if(isset($_SESSION["useruid"])) {
-                echo '<li class="nav-item"><a class="nav-link" href="homepage.php">Homepage</a></li>';
-                echo '<li class="nav-item"><a class="nav-link" href="new_kanjis.php"> New Kanjis</a></li>';
-                echo '<li class="nav-item"><a class="nav-link"href="includes/logout.inc.php"> Log out </a></li>';
+                echo '<li class="nav-item"><a class="nav-link" href="homepage.php">Página inicial</a></li>';
+                echo '<li class="nav-item"><a class="nav-link" href="new_kanjis.php"> Novas palavras</a></li>';
+                echo '<li class="nav-item"><a class="nav-link"href="includes/logout.inc.php"> Sair</a></li>';
             }else {
                 header("location: ../luhan/login.php");
             }
@@ -73,29 +77,15 @@ else {
         <div class="newkanjis">
             <div class="slideshow-container">
                 <div class="mySlides">
-                    <?php 
-                        if (empty($kanji[0])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Kanji</p><?php
-                            print_r($kanji[0]);
-                        }
-                        if (empty($hiragana[0])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Katakana</p><?php
-                            print_r($hiragana[0]);
-                        }
-                    ?>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji"><?php print_r($romanji[0])?></p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning"><?php print_r($meaning[0])?></p>
+                    <p class="word">Palavra</p>
+                    <p class="word"><?php print_r($word[0]);?><p>
+                    <p class="mean">Significado</p>
+                    <p class="meaning"><?php print_r($significado[0])?></p>
                     <?php
-                        $file = "audio/" . $romanji[0] . ".mp3";
+                        $file = "audio/" . $word[0] . ".mp3";
 
                         if (!file_exists($file)) {
-                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[0].'&tl=ja');
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$word[0].'&tl=en-us');
                             file_put_contents($file, $mp3);
                         }
                     ?>
@@ -106,29 +96,15 @@ else {
                 </div>
 
                 <div class="mySlides">
-                    <?php 
-                        if (empty($kanji[1])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Kanji</p><?php
-                            print_r($kanji[1]);
-                        }
-                        if (empty($hiragana[1])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Katakana</p><?php
-                            print_r($hiragana[1]);
-                        }
-                    ?>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji"><?php print_r($romanji[1])?></p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning"><?php print_r($meaning[1])?></p>
+                    <p class="word">Palavra</p>
+                    <p class="word"><?php print_r($word[1]);?><p>
+                    <p class="mean">Significado</p>
+                    <p class="meaning"><?php print_r($significado[1])?></p>
                     <?php
-                        $file = "audio/" . $romanji[1] . ".mp3";
+                        $file = "audio/" . $word[1] . ".mp3";
 
                         if (!file_exists($file)) {
-                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[1].'&tl=ja');
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$word[1].'&tl=en-us');
                             file_put_contents($file, $mp3);
                         }
                     ?>
@@ -139,29 +115,15 @@ else {
                 </div>
 
                 <div class="mySlides">
-                    <?php 
-                        if (empty($kanji[2])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Kanji</p><?php
-                            print_r($kanji[2]);
-                        }
-                        if (empty($hiragana[2])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Katakana</p><?php
-                            print_r($hiragana[2]);
-                        }
-                    ?>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji"><?php print_r($romanji[2])?></p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning"><?php print_r($meaning[2])?></p>
+                    <p class="word">Palavra</p>
+                    <p class="word"><?php print_r($word[2]);?><p>
+                    <p class="mean">Significado</p>
+                    <p class="meaning"><?php print_r($significado[2])?></p>
                     <?php
-                        $file = "audio/" . $romanji[2] . ".mp3";
+                        $file = "audio/" . $word[2] . ".mp3";
 
                         if (!file_exists($file)) {
-                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[2].'&tl=ja');
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$word[2].'&tl=en-us');
                             file_put_contents($file, $mp3);
                         }
                     ?>
@@ -172,29 +134,15 @@ else {
                 </div>
 
                 <div class="mySlides">
-                    <?php 
-                        if (empty($kanji[3])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Kanji</p><?php
-                            print_r($kanji[3]);
-                        }
-                        if (empty($hiragana[3])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Katakana</p><?php
-                            print_r($hiragana[3]);
-                        }
-                    ?>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji"><?php print_r($romanji[3])?></p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning"><?php print_r($meaning[3])?></p>
+                    <p class="word">Palavra</p>
+                    <p class="word"><?php print_r($word[3]);?><p>
+                    <p class="mean">Significado</p>
+                    <p class="meaning"><?php print_r($significado[3])?></p>
                     <?php
-                        $file = "audio/" . $romanji[3] . ".mp3";
+                        $file = "audio/" . $word[3] . ".mp3";
 
                         if (!file_exists($file)) {
-                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[3].'&tl=ja');
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$word[3].'&tl=en-us');
                             file_put_contents($file, $mp3);
                         }
                     ?>
@@ -205,29 +153,15 @@ else {
                 </div>
 
                 <div class="mySlides">
-                    <?php 
-                        if (empty($kanji[4])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Kanji</p><?php
-                            print_r($kanji[4]);
-                        }
-                        if (empty($hiragana[4])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Katakana</p><?php
-                            print_r($hiragana[4]);
-                        }
-                    ?>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji"><?php print_r($romanji[4])?></p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning"><?php print_r($meaning[4])?></p>
+                    <p class="word">Palavra</p>
+                    <p class="word"><?php print_r($word[4]);?><p>
+                    <p class="mean">Significado</p>
+                    <p class="meaning"><?php print_r($significado[4])?></p>
                     <?php
-                        $file = "audio/" . $romanji[4] . ".mp3";
+                        $file = "audio/" . $word[4] . ".mp3";
 
                         if (!file_exists($file)) {
-                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[4].'&tl=ja');
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$word[4].'&tl=en-us');
                             file_put_contents($file, $mp3);
                         }
                     ?>
@@ -238,29 +172,15 @@ else {
                 </div>
 
                 <div class="mySlides">
-                    <?php 
-                        if (empty($kanji[5])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Kanji</p><?php
-                            print_r($kanji[5]);
-                        }
-                        if (empty($hiragana[5])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Katakana</p><?php
-                            print_r($hiragana[5]);
-                        }
-                    ?>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji"><?php print_r($romanji[5])?></p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning"><?php print_r($meaning[5])?></p>
+                    <p class="word">Palavra</p>
+                    <p class="word"><?php print_r($word[5]);?><p>
+                    <p class="mean">Significado</p>
+                    <p class="meaning"><?php print_r($significado[5])?></p>
                     <?php
-                        $file = "audio/" . $romanji[5] . ".mp3";
+                        $file = "audio/" . $word[5] . ".mp3";
 
                         if (!file_exists($file)) {
-                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[5].'&tl=ja');
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$word[5].'&tl=en-us');
                             file_put_contents($file, $mp3);
                         }
                     ?>
@@ -271,29 +191,15 @@ else {
                 </div>
 
                 <div class="mySlides">
-                    <?php 
-                        if (empty($kanji[6])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Kanji</p><?php
-                            print_r($kanji[6]);
-                        }
-                        if (empty($hiragana[6])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Katakana</p><?php
-                            print_r($hiragana[6]);
-                        }
-                    ?>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji"><?php print_r($romanji[6])?></p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning"><?php print_r($meaning[6])?></p>
+                    <p class="word">Palavra</p>
+                    <p class="word"><?php print_r($word[6]);?><p>
+                    <p class="mean">Significado</p>
+                    <p class="meaning"><?php print_r($significado[6])?></p>
                     <?php
-                        $file = "audio/" . $romanji[6] . ".mp3";
+                        $file = "audio/" . $word[6] . ".mp3";
 
                         if (!file_exists($file)) {
-                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[6].'&tl=ja');
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$word[6].'&tl=en-us');
                             file_put_contents($file, $mp3);
                         }
                     ?>
@@ -304,29 +210,15 @@ else {
                 </div>
 
                 <div class="mySlides">
-                    <?php 
-                        if (empty($kanji[7])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Kanji</p><?php
-                            print_r($kanji[7]);
-                        }
-                        if (empty($hiragana[7])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Katakana</p><?php
-                            print_r($hiragana[7]);
-                        }
-                    ?>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji"><?php print_r($romanji[7])?></p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning"><?php print_r($meaning[7])?></p>
+                    <p class="word">Palavra</p>
+                    <p class="word"><?php print_r($word[7]);?><p>
+                    <p class="mean">Significado</p>
+                    <p class="meaning"><?php print_r($significado[7])?></p>
                     <?php
-                        $file = "audio/" . $romanji[7] . ".mp3";
+                        $file = "audio/" . $word[7] . ".mp3";
 
                         if (!file_exists($file)) {
-                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[7].'&tl=ja');
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$word[7].'&tl=en-us');
                             file_put_contents($file, $mp3);
                         }
                     ?>
@@ -337,29 +229,15 @@ else {
                 </div>
 
                 <div class="mySlides">
-                    <?php 
-                        if (empty($kanji[8])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Kanji</p><?php
-                            print_r($kanji[8]);
-                        }
-                        if (empty($hiragana[8])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Katakana</p><?php
-                            print_r($hiragana[8]);
-                        }
-                    ?>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji"><?php print_r($romanji[8])?></p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning"><?php print_r($meaning[8])?></p>
+                    <p class="word">Palavra</p>
+                    <p class="word"><?php print_r($word[8]);?><p>
+                    <p class="mean">Significado</p>
+                    <p class="meaning"><?php print_r($significado[8])?></p>
                     <?php
-                        $file = "audio/" . $romanji[8] . ".mp3";
+                        $file = "audio/" . $word[8] . ".mp3";
 
                         if (!file_exists($file)) {
-                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[8].'&tl=ja');
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$word[8].'&tl=en-us');
                             file_put_contents($file, $mp3);
                         }
                     ?>
@@ -370,29 +248,15 @@ else {
                 </div>
 
                 <div class="mySlides">
-                    <?php 
-                        if (empty($kanji[9])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Kanji</p><?php
-                            print_r($kanji[9]);
-                        }
-                        if (empty($hiragana[9])) {
-                            echo "";
-                        } else {
-                            ?><p class="kata">Katakana</p><?php
-                            print_r($hiragana[9]);
-                        }
-                    ?>
-                    <p class="roman">Romanji</p>
-                    <p class="romanji"><?php print_r($romanji[9])?></p>
-                    <p class="mean">Meaning</p>
-                    <p class="meaning"><?php print_r($meaning[9])?></p>
+                    <p class="word">Palavra</p>
+                    <p class="word"><?php print_r($word[9]);?><p>
+                    <p class="mean">Significado</p>
+                    <p class="meaning"><?php print_r($significado[9])?></p>
                     <?php
-                        $file = "audio/" . $romanji[9] . ".mp3";
+                        $file = "audio/" . $word[9] . ".mp3";
 
                         if (!file_exists($file)) {
-                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$romanji[9].'&tl=ja');
+                            $mp3 = file_get_contents('https://translate.google.com/translate_tts?ie=UTF-&&client=gtx&q='.$word[9].'&tl=en-us');
                             file_put_contents($file, $mp3);
                         }
                     ?>
@@ -421,7 +285,7 @@ else {
         </div>
 
         <?php
-            if (returnUserLevel($conn) <= $x) {
+            if (returnUserLevel($conn) <= $level) {
             ?><form action="includes/levels.inc.php" method="post">
                 <button type="submit" name="submit">Complete level</button>
             </form>
